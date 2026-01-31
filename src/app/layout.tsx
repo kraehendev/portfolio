@@ -7,6 +7,7 @@ import { ConditionalNavigation } from '@/components/organisms/conditionalNavigat
 import Footer from '@/components/organisms/footer';
 import { ThemeProvider } from '@/context/ThemeContext';
 import ThemeToggle from '@/components/atoms/themeToggle';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -59,6 +60,7 @@ export default async function RootLayout({
           </NextIntlClientProvider>
           <ThemeToggle />
         </ThemeProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
