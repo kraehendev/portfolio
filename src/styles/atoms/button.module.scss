@@ -1,0 +1,85 @@
+@use "../config.scss" as *;
+
+.button {
+  align-items: center;
+  background-color: $primary-bg-color;
+  border-radius: 0.5rem;
+  box-shadow: toRem(4) toRem(4) 0 0 #000;
+  color: white;
+  cursor: pointer;
+  display: inline-flex;
+  font-weight: bold;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  &.primary {
+    background-color: $primary-bg-color;
+    &:hover,
+    &:focus-visible {
+      background-color: $primary-bg-color-hover;
+    }
+  }
+
+  &.secondary {
+    background-color: $secondary-bg-color;
+    &:hover,
+    &:focus-visible {
+      background-color: $secondary-bg-color-hover;
+    }
+  }
+
+  &.tertiary {
+    background-color: $tertiary-bg-color;
+    &:hover,
+    &:focus-visible {
+      background-color: $tertiary-bg-color-hover;
+    }
+  }
+
+  &.quaternary {
+    background-color: $quaternary-bg-color;
+    &:hover,
+    &:focus-visible {
+      background-color: $quaternary-bg-color-hover;
+    }
+  }
+
+  &:hover,
+  &:focus-visible {
+    background-color: $primary-bg-color-hover;
+    box-shadow: toRem(6) toRem(6) 0 0 #000;
+
+    .iconContainer::after {
+      opacity: 1;
+    }
+
+    .content {
+      transform: translateX(0);
+    }
+  }
+
+  &:active,
+  &:focus-visible:active {
+    box-shadow: toRem(2) toRem(2) 0 0 #000;
+    transform: translate(toRem(2), toRem(2));
+
+    .content {
+      transform: translateX(0);
+    }
+
+  }
+
+  &:disabled,
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.resetSpacing {
+  padding: 0;
+}

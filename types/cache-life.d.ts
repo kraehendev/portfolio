@@ -23,7 +23,7 @@ declare module 'next/cache' {
      * If the server receives a new request after 15 minutes, start revalidating new values in the background.
      * It lives for the maximum age of the server cache. If this entry has no traffic for a while, it may serve an old value the next request.
      */
-    export function cacheLife(profile: "default"): void
+    export function cacheLife(profile: 'default'): void
     
     /**
      * Cache this `"use cache"` for a timespan defined by the `"seconds"` profile.
@@ -37,7 +37,7 @@ declare module 'next/cache' {
      * If the server receives a new request after 1 seconds, start revalidating new values in the background.
      * If this entry has no traffic for 1 minute it will expire. The next request will recompute it.
      */
-    export function cacheLife(profile: "seconds"): void
+    export function cacheLife(profile: 'seconds'): void
     
     /**
      * Cache this `"use cache"` for a timespan defined by the `"minutes"` profile.
@@ -51,7 +51,7 @@ declare module 'next/cache' {
      * If the server receives a new request after 1 minute, start revalidating new values in the background.
      * If this entry has no traffic for 1 hour it will expire. The next request will recompute it.
      */
-    export function cacheLife(profile: "minutes"): void
+    export function cacheLife(profile: 'minutes'): void
     
     /**
      * Cache this `"use cache"` for a timespan defined by the `"hours"` profile.
@@ -65,7 +65,7 @@ declare module 'next/cache' {
      * If the server receives a new request after 1 hour, start revalidating new values in the background.
      * If this entry has no traffic for 1 day it will expire. The next request will recompute it.
      */
-    export function cacheLife(profile: "hours"): void
+    export function cacheLife(profile: 'hours'): void
     
     /**
      * Cache this `"use cache"` for a timespan defined by the `"days"` profile.
@@ -79,7 +79,7 @@ declare module 'next/cache' {
      * If the server receives a new request after 1 day, start revalidating new values in the background.
      * If this entry has no traffic for 1 week it will expire. The next request will recompute it.
      */
-    export function cacheLife(profile: "days"): void
+    export function cacheLife(profile: 'days'): void
     
     /**
      * Cache this `"use cache"` for a timespan defined by the `"weeks"` profile.
@@ -93,7 +93,7 @@ declare module 'next/cache' {
      * If the server receives a new request after 1 week, start revalidating new values in the background.
      * If this entry has no traffic for 1 month it will expire. The next request will recompute it.
      */
-    export function cacheLife(profile: "weeks"): void
+    export function cacheLife(profile: 'weeks'): void
     
     /**
      * Cache this `"use cache"` for a timespan defined by the `"max"` profile.
@@ -107,7 +107,7 @@ declare module 'next/cache' {
      * If the server receives a new request after 1 month, start revalidating new values in the background.
      * If this entry has no traffic for 365 days it will expire. The next request will recompute it.
      */
-    export function cacheLife(profile: "max"): void
+    export function cacheLife(profile: 'max'): void
     
     /**
      * Cache this `"use cache"` using a custom timespan.

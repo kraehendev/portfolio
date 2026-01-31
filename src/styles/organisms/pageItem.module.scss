@@ -1,0 +1,9 @@
+@use "../config.scss" as *;
+
+.pageItem {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  &.primary {
+    background-color: $primary-bg-color;
+  }
+}

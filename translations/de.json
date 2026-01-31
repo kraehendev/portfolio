@@ -1,0 +1,14 @@
+{
+  "welcome": "Hi! 🙂",
+  "Intro": "Ich heiße Flo! Fullstack Developer, Fotograf, Videograf, Luftfahrtverrückt, Mensch",
+  "navigation": {
+    "me": "Ich :)",
+    "tech": "Techstack",
+    "career": "Werdegang",
+    "photosVideos": "Fotos / Videos",
+    "contact": "Kontakt"
+  },
+  "privacyPolicy": "Datenschutz",
+  "legalNotice": "Impressum"
+
+}

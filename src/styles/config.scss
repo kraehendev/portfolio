@@ -1,0 +1,44 @@
+@use "sass:math";
+
+@function toRem($value) {
+  // Convert pixel value to rem (assuming base font size of 16px)
+  // Divide by unitless 16 since $value already has px unit
+  @return math.div($value, 16) + rem;
+}
+
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+  super: 1920px
+);
+
+@mixin breakpoint($size) {
+  @if map-has-key($breakpoints, $size) {
+    @media (min-width: map-get($breakpoints, $size)) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint: #{$size}";
+  }
+}
+
+$primary-color: #ededed;
+$secondary-color: #0c0c0c;
+
+$primary-bg-color: #3D315B;
+$primary-bg-color-hover: #4a3a7a;
+
+$secondary-bg-color: #52ad9c;
+$secondary-bg-color-hover: #4a998b;
+
+$tertiary-bg-color: #353535;
+$tertiary-bg-color-hover: #444444;
+
+$quaternary-bg-color: #E87461;
+$quaternary-bg-color-hover: #d96652;
+
+$font-family-primary: 'Montserrat', Arial, Helvetica, sans-serif;

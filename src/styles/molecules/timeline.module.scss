@@ -1,0 +1,11 @@
+@use '../config.scss' as *;
+
+.timeline {
+  position: relative;
+  width: 100%;
+  padding: 1rem 0;
+
+  @include breakpoint(md) {
+    padding: 2rem 0;
+  }
+}

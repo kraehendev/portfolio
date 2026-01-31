@@ -1,0 +1,74 @@
+@use "../config.scss" as *;
+
+.wrapper {
+  display: inline-block;
+  position: relative;
+  &:last-child {
+    margin-bottom: 0;
+    margin-right: 0;
+  }
+}
+
+.iconWrapper {
+  height: toRem(40);
+  overflow: hidden;
+  pointer-events: none;
+  width: toRem(40);
+}
+
+.iconBox {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  pointer-events: none;
+  transform: translateX(10%);
+  transition: 0.2s;
+  width: 100%;
+}
+
+.icon {
+  height: toRem(24);
+  width: toRem(24);
+}
+
+.arrowIcon {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.websiteIcon,
+.worldIcon {
+  height: toRem(24);
+  opacity: 0;
+  position: relative;
+  transform: translateX(50%);
+  transition: all 0.2s;
+  width: toRem(24);
+}
+
+.wrapper :global(a:active) .iconBox,
+.wrapper :global(a:focus-visible:active) .iconBox {
+  transform: translateX(-20%);
+}
+
+.wrapper :global(a:hover) .arrowIcon,
+.wrapper :global(a:focus-visible) .arrowIcon {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.wrapper :global(a:hover) .websiteIcon,
+.wrapper :global(a:focus-visible) .websiteIcon,
+.wrapper :global(a:hover) .worldIcon,
+.wrapper :global(a:focus-visible) .worldIcon {
+  opacity: 1;
+  transform: translateX(10%);
+}
+
+.wrapper :global(a:active) .arrowIcon,
+.wrapper :global(a:focus-visible:active) .arrowIcon {
+  opacity: 0;
+  transform: translateX(-100%);
+}

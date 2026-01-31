@@ -1,0 +1,19 @@
+@use "../config.scss" as *;
+
+.footer {
+  margin-top: auto;
+  position: relative;
+  width: 100%;
+  height: toRem(200);
+  z-index: 1000;
+}
+
+.footerBackground {
+  background-color: #101010;
+  background-image: url("../../../public/street_sprite_v5.png");
+  background-size: auto 200px;
+  background-position: bottom;
+  background-repeat: repeat-x;
+  height: 100%;
+  width: 100%;
+}

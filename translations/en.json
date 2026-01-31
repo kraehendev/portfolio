@@ -1,0 +1,15 @@
+{
+  "welcome": "Welcome to my website",
+  "navigation": {
+    "me": "About Me",
+    "tech": "Tech Stack",
+    "photosVideos": "Photos / Videos",
+    "contact": "Contact"
+  },
+  "privacyPolicy": "Privacy Policy",
+  "legalNotice": "Legal Notice",
+  "footer": {
+    "privacyPolicy": "Privacy Policy",
+    "legalNotice": "Legal Notice"
+  }
+}

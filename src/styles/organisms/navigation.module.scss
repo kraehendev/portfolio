@@ -1,0 +1,308 @@
+@use "../config.scss" as *;
+
+$nav-door-gradient-start: rgba(0, 0, 0, 0.12);
+$nav-door-gradient-end: rgba(0, 0, 0, 0.06);
+$nav-door-gradient-start-light: rgba(255, 255, 255, 0.7);
+$nav-door-gradient-end-light: rgba(255, 255, 255, 0.5);
+
+.navigation {
+  position: sticky;
+  bottom: 0;
+  background-color: #5a6169;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  z-index: 1000;
+  margin-top: auto;
+}
+
+.navList {
+  border-bottom: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0.75rem 0.5rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 0.5rem;
+
+  @include breakpoint(md) {
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    padding: 1rem 1rem 0;
+    gap: 1rem;
+  }
+}
+
+.navItem {
+  flex: 0 0 calc((100% - 1rem) / 3);
+  text-align: center;
+  max-width: 150px;
+
+  @include breakpoint(md) {
+    flex: 1;
+  }
+}
+
+.navLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  position: relative;
+  min-height: 90px;
+  border: 2px solid rgba(180, 180, 180, 0.3);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+
+  @include breakpoint(md) {
+    min-height: 100px;
+    gap: 0.75rem;
+    overflow: hidden;
+    border: 3px solid rgba(180, 180, 180, 0.4);
+    border-bottom: none;
+    background: transparent;
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.15),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+
+    // left door half (desktop only)
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      background: linear-gradient(
+        135deg,
+        $nav-door-gradient-start 0%,
+        $nav-door-gradient-end 100%
+      );
+      backdrop-filter: blur(10px);
+      border-right: 2px solid rgba(180, 180, 180, 0.3);
+      box-shadow:
+        inset -1px 0 0 rgba(255, 255, 255, 0.2),
+        2px 0 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    // right door half (desktop only)
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      background: linear-gradient(
+        225deg,
+        $nav-door-gradient-start 0%,
+        $nav-door-gradient-end 100%
+      );
+      backdrop-filter: blur(10px);
+      border-left: 2px solid rgba(180, 180, 180, 0.3);
+      box-shadow:
+        inset 1px 0 0 rgba(255, 255, 255, 0.2),
+        -2px 0 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    // Desktop hover effect - doors slide open
+    &:hover {
+      border-color: rgba(200, 200, 200, 0.6);
+      box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.2),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+      // Slide left door to the left
+      &::before {
+        transform: translateX(-100%);
+      }
+
+      // Slide right door to the right
+      &::after {
+        transform: translateX(100%);
+      }
+
+      .backgroundIcon {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+
+      .navIcon {
+        transform: scale(1.15);
+        background: rgba(255, 255, 255, 0.25);
+        box-shadow:
+          0 8px 20px rgba(0, 0, 0, 0.3),
+          inset 0 2px 4px rgba(255, 255, 255, 0.4);
+      }
+
+      .navLabel {
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        text-decoration: underline;
+
+        &::after {
+          height: 100%;
+          top: 0;
+          transform: none;
+          border-radius: 0;
+        }
+      }
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+}
+
+// Large background icon (desktop only, behind glass)
+.backgroundIcon {
+  display: none;
+
+  @include breakpoint(md) {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.15;
+    color: var(--foreground);
+    pointer-events: none;
+    z-index: 0;
+    transition: all 0.4s ease;
+  }
+}
+
+.navIcon {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.4rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+
+  @include breakpoint(md) {
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.6rem;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.2),
+      inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  }
+}
+
+.navLabel {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  font-weight: 400;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+
+  @include breakpoint(md) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    letter-spacing: 0.8px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    border-radius: 0;
+    background: transparent;
+    backdrop-filter: none;
+    transition: transform 0.4s ease;
+
+    // Background element that expands on hover
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 100%;
+      height: 50px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      border-radius: 4px;
+      transition: all 0.4s ease;
+      z-index: -1;
+    }
+  }
+}
+
+// Light theme adjustments
+[data-theme="light"] {
+  .navLink {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(120, 120, 120, 0.4);
+
+    @include breakpoint(md) {
+      background: transparent;
+      border-color: rgba(120, 120, 120, 0.5);
+
+      &::before {
+        background: linear-gradient(
+          135deg,
+          $nav-door-gradient-start-light 0%,
+          $nav-door-gradient-end-light 100%
+        );
+        border-right-color: rgba(120, 120, 120, 0.4);
+      }
+
+      &::after {
+        background: linear-gradient(
+          225deg,
+          $nav-door-gradient-start-light 0%,
+          $nav-door-gradient-end-light 100%
+        );
+        border-left-color: rgba(120, 120, 120, 0.4);
+      }
+
+      &:hover {
+        border-color: rgba(100, 100, 100, 0.6);
+      }
+    }
+  }
+
+  .backgroundIcon {
+    @include breakpoint(md) {
+      opacity: 0.2;
+    }
+  }
+
+  .navIcon {
+    background: rgba(100, 100, 100, 0.1);
+    border-color: rgba(100, 100, 100, 0.2);
+
+    @include breakpoint(md) {
+      background: rgba(100, 100, 100, 0.15);
+      border-color: rgba(100, 100, 100, 0.25);
+    }
+  }
+}
