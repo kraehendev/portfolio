@@ -23,7 +23,7 @@ export default async function HomePage() {
           Florian Kuehne <br />
           Fullstack Developer
         </Heading>
-        <Heading as="h3">
+        <Heading as="h2">
           {t('welcome')} {t('Intro')}
         </Heading>
       </Header>
