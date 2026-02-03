@@ -1,8 +1,12 @@
 {
+  "metadata": {
+    "description": "Portfolio of the experienced Fullstack Developer Florian Kuehne."
+  },
   "welcome": "Welcome to my website",
   "navigation": {
     "me": "About Me",
     "tech": "Tech Stack",
+    "career": "Career",
     "photosVideos": "Photos / Videos",
     "contact": "Contact"
   },
@@ -11,5 +15,85 @@
   "footer": {
     "privacyPolicy": "Privacy Policy",
     "legalNotice": "Legal Notice"
+  },
+  "career": {
+    "items": {
+      "1": {
+        "title": "Apprenticeship as IT Specialist in System Integration",
+        "company": "WSE GmbH",
+        "description": "Apprenticeship as an IT specialist with a focus on system integration. First experiences in web development and programming."
+      },
+      "2": {
+        "title": "Web Developer",
+        "company": "ion2s",
+        "location": "Darmstadt",
+        "description": "BKP"
+      },
+      "3": {
+        "title": "Web Developer",
+        "company": "ion2s",
+        "location": "Darmstadt",
+        "description": "NKP"
+      },
+      "4": {
+        "title": "Web Developer",
+        "company": "ion2s",
+        "location": "Darmstadt",
+        "description": "OSCAR"
+      },
+      "5": {
+        "title": "Web Developer",
+        "company": "ion2s",
+        "location": "Darmstadt",
+        "description": "ion2s Website"
+      },
+      "6": {
+        "title": "Web Developer",
+        "company": "ion2s",
+        "location": "Darmstadt",
+        "description": "B2B"
+      },
+      "7": {
+        "title": "Web Developer",
+        "company": "ion2s",
+        "location": "Darmstadt",
+        "description": "OneShop"
+      },
+      "8": {
+        "title": "Web Developer",
+        "company": "ion2s",
+        "location": "Darmstadt",
+        "description": "B2B"
+      },
+      "9": {
+        "title": "Web Developer",
+        "company": "ion2s",
+        "location": "Darmstadt",
+        "description": "ion2s Website"
+      },
+      "10": {
+        "title": "Web Developer",
+        "company": "ion2s",
+        "location": "Darmstadt",
+        "description": "OXG"
+      },
+      "11": {
+        "title": "Web Developer",
+        "company": "ion2s",
+        "location": "Darmstadt",
+        "description": "PYUR"
+      },
+      "12": {
+        "title": "Web Developer",
+        "company": "ion2s",
+        "location": "Darmstadt",
+        "description": "Ponnath"
+      },
+      "13": {
+        "title": "Job Search",
+        "company": "Looking for opportunities",
+        "description": "Actively seeking new opportunities as a Fullstack/Frontend Developer."
+      }
+    }
   }
 }

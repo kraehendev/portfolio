@@ -8,10 +8,14 @@ import { ThemeProvider } from '@/context/ThemeContext';
 import ThemeToggle from '@/components/atoms/themeToggle';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
-export const metadata: Metadata = {
-  title: 'Florian Kuehne Fullstack Developer',
-  description: 'Fullstack Developer Florian Kuehne .',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const messages = await getMessages();
+
+  return {
+    title: 'Florian Kuehne Fullstack Developer',
+    description: (messages as any).metadata?.description || 'Portfolio of Florian Kuehne',
+  };
+}
 
 export default async function RootLayout({
   children,

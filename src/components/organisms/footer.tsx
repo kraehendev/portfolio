@@ -21,18 +21,6 @@ export default async function Footer() {
             <li className="p-4">
               <AnimatedLink href="/privacy" label={t('privacyPolicy')} />
             </li>
-            <li className="p-4">
-              <AnimatedLink
-                href="https://www.linkedin.com/in/florian-kuehne-developer"
-                label={'LinkedIn'}
-              />
-            </li>
-            <li className="p-4">
-              <AnimatedLink
-                href="https://github.com/kraehendev/"
-                label={'GitHub'}
-              />
-            </li>
           </ul>
           <div>
             <ul></ul>

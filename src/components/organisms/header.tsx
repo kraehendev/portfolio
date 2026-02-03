@@ -5,6 +5,7 @@ import Cloud from '@/components/icons/cloud';
 import Moon from '@/components/icons/moon';
 import Sun from '@/components/icons/sun';
 import styles from '@/styles/organisms/header.module.scss';
+import AirplaneFuselage from '@/components/atoms/airplaneFuselage';
 
 type HeaderProps = {
   children?: ReactNode;

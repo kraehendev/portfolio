@@ -1,8 +1,13 @@
 import type { CareerItem } from '@/data/career';
 import styles from '@/styles/molecules/timelineItem.module.scss';
 
+type TranslatedCareerItem = Omit<CareerItem, 'title' | 'description'> & {
+  title: string;
+  description: string;
+};
+
 type TimelineItemProps = {
-  item: CareerItem;
+  item: TranslatedCareerItem;
   isLast?: boolean;
 };
 
