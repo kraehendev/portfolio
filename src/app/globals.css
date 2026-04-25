@@ -21,22 +21,20 @@
 }
 
 :root {
-  /* Dark theme (default) */
-  --background: #020a20;
-  --foreground: #ededed;
-  --airplane-body: #ffffff;
-  --airplane-opacity: 0.5;
-  --lantern-glow-opacity: 1;
-  --cloud-color: rgba(180, 200, 230, 0.25);
+  /* Dark theme (default) - Dark blue */
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+  --bento-card-bg: #1e293b;
+  --bento-card-border: rgba(241, 245, 249, 0.15);
+  --bento-card-shadow: rgba(0, 0, 0, 0.2);
 }
 
 [data-theme="light"] {
-  --background: #9ce0f5;
-  --foreground: #1a1a1a;
-  --airplane-body: #ffffff;
-  --airplane-opacity: 0.8;
-  --lantern-glow-opacity: 0.4;
-  --cloud-color: rgba(255, 255, 255, 0.9);
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --bento-card-bg: #e2e8f0;
+  --bento-card-border: rgba(15, 23, 42, 0.15);
+  --bento-card-shadow: rgba(0, 0, 0, 0.05);
 }
 
 @theme inline {
@@ -68,4 +66,9 @@ body {
 
 main {
   flex: 1;
+  padding-top: 60px;
+
+  @media (min-width: 768px) {
+    padding-top: 70px;
+  }
 }

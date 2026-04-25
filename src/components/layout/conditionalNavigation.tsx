@@ -1,10 +1,9 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import { navigationData } from '@/data/navigation';
-import styles from '../../styles/organisms/navigation.module.scss';
+import styles from '@/styles/layout/navigation.module.scss';
 import { useTranslations } from 'next-intl';
 
 export const ConditionalNavigation = () => {

@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { classNameSummary } from '@/utils';
-import styles from '../../styles/organisms/pageItem.module.scss';
+import styles from '@/styles/sections/pageItem.module.scss';
 
 export default function PageItem({
   children,

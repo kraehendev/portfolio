@@ -1,6 +1,6 @@
 import type { ComponentType } from 'react';
-import Grid from '@/components/molecules/grid';
-import IconLabel from '@/components/molecules/iconLabel';
+import Grid from '@/components/ui/grid';
+import IconLabel from '@/components/ui/iconLabel';
 import type { IconProps } from '@/utils';
 
 type TechstackItem = {
@@ -19,16 +19,16 @@ export default function TechstackSection({
   className = '',
 }: TechstackSectionProps) {
   const levelClasses: Record<NonNullable<TechstackItem['level']>, string> = {
-    expert: 'bg-emerald-400/20 text-emerald-100',
-    intermediate: 'bg-sky-400/20 text-sky-100',
-    beginner: 'bg-amber-400/20 text-amber-100',
+    expert: 'bg-[#8b7355]/30 text-foreground',
+    intermediate: 'bg-[#a68b6f]/30 text-foreground',
+    beginner: 'bg-[#c4a882]/30 text-foreground',
   };
 
   return (
     <div className={className}>
       <div className="flex flex-col gap-6 md:flex-row">
         <div className="md:w-[30%]">
-          <div className="text-sm font-semibold uppercase tracking-wide text-white/70">
+          <div className="text-sm font-semibold uppercase tracking-wide text-foreground/70">
             Level
           </div>
           <ul className="mt-3 space-y-2 text-sm">
@@ -56,7 +56,7 @@ export default function TechstackSection({
                 label={item.label}
                 icon={item.icon}
                 iconWrapperClassName={
-                  item.level ? levelClasses[item.level] : 'bg-white/10'
+                  item.level ? levelClasses[item.level] : 'bg-[var(--bento-card-bg)]/50'
                 }
               />
             ))}

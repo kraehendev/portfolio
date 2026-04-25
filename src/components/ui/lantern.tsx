@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import styles from '../../styles/atoms/lantern.module.scss';
+import styles from '@/styles/ui/lantern.module.scss';
 
 type LanternProps = {
   position?: 'left' | 'right';

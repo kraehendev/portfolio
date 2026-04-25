@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import styles from '@/styles/molecules/timeline.module.scss';
+import styles from '@/styles/ui/timeline.module.scss';
 
 type TimelineProps = {
   children: ReactNode;

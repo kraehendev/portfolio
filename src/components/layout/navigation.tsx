@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import { navigationData } from '@/data/navigation';
-import styles from '../../styles/organisms/navigation.module.scss';
+import styles from '@/styles/layout/navigation.module.scss';
 
 export const Navigation = async () => {
   const t = await getTranslations();

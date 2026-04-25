@@ -1,16 +1,14 @@
-import Container from '../atoms/container';
-import styles from '../../styles/organisms/footer.module.scss';
-import AnimatedLink from './animatedLink';
+import Container from '@/components/ui/container';
+import styles from '@/styles/layout/footer.module.scss';
+import AnimatedLink from '@/components/sections/animatedLink';
 import { getTranslations } from 'next-intl/server';
-import Lantern from '../atoms/lantern';
+import Lantern from '@/components/ui/lantern';
 
 export default async function Footer() {
   const t = await getTranslations();
 
   return (
     <footer className={`${styles.footer}`}>
-      <Lantern position="left" />
-      <div className={styles.footerBackground}></div>
       <Container>
         <div className="flex justify-between items-center">
           <p>© 2026 Florian Kuehne</p>

@@ -3,9 +3,9 @@ import type {
   AnchorHTMLAttributes,
   MouseEventHandler,
 } from 'react';
-import { Button, ButtonProps } from '../atoms/button';
-import styles from '../../styles/molecules/iconLinkButton.module.scss';
-import AnimatedLinkLabel from '../molecules/animatedLinkLabel';
+import { Button, ButtonProps } from '@/components/ui/button';
+import styles from '@/styles/sections/iconLinkButton.module.scss';
+import AnimatedLinkLabel from '@/components/ui/animatedLinkLabel';
 import { isExternalLink } from '@/utils';
 
 type IconLinkButtonProps = {

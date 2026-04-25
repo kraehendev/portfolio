@@ -1,7 +1,7 @@
 import { isExternalLink } from '@/utils';
-import AnimatedLinkLabel from '@/components/molecules/animatedLinkLabel';
+import AnimatedLinkLabel from '@/components/ui/animatedLinkLabel';
 import Link from 'next/link';
-import styles from '../../styles/organisms/animatedLink.module.scss';
+import styles from '@/styles/sections/animatedLink.module.scss';
 
 export default function AnimatedLink({ href, label }: { href: string, label: string }) {
   const isExternal = isExternalLink(href);

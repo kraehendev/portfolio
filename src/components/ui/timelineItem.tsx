@@ -1,5 +1,5 @@
 import type { CareerItem } from '@/data/career';
-import styles from '@/styles/molecules/timelineItem.module.scss';
+import styles from '@/styles/ui/timelineItem.module.scss';
 
 type TranslatedCareerItem = Omit<CareerItem, 'title' | 'description'> & {
   title: string;

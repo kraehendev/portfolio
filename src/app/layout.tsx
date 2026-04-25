@@ -2,10 +2,8 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 import type { Metadata } from 'next';
 import './globals.css';
-import { ConditionalNavigation } from '@/components/organisms/conditionalNavigation';
-import Footer from '@/components/organisms/footer';
-import { ThemeProvider } from '@/context/ThemeContext';
-import ThemeToggle from '@/components/atoms/themeToggle';
+import Header from '@/components/layout/header';
+import Footer from '@/components/layout/footer';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -45,14 +43,13 @@ export default async function RootLayout({
       <body
         className={`antialiased`}
       >
-        <ThemeProvider>
-          <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider messages={messages}>
+          <Header />
+          <main>
             {children}
-            <ConditionalNavigation />
-            <Footer />
-          </NextIntlClientProvider>
-          <ThemeToggle />
-        </ThemeProvider>
+          </main>
+          <Footer />
+        </NextIntlClientProvider>
         <SpeedInsights />
       </body>
     </html>

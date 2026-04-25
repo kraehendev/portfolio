@@ -5,7 +5,7 @@ import type {
   AnchorHTMLAttributes,
 } from 'react';
 import Link from 'next/link';
-import styles from '../../styles/atoms/button.module.scss';
+import styles from '@/styles/ui/button.module.scss';
 
 export type ButtonProps = {
   children: ReactNode;

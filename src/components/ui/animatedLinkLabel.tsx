@@ -1,8 +1,8 @@
-import Arrow from '../icons/arrow';
-import Website from '../icons/website';
-import World from '../icons/world';
+import Arrow from '@/components/icons/arrow';
+import Website from '@/components/icons/website';
+import World from '@/components/icons/world';
 import { classNameSummary } from "@/utils";
-import styles from '../../styles/molecules/animatedLinkLabel.module.scss';
+import styles from '@/styles/ui/animatedLinkLabel.module.scss';
 
 
 export default function AnimatedLinkLabel({ label, isExternal, inline = false }: { label: string, isExternal: boolean, inline?: boolean }) {

@@ -2,8 +2,8 @@
 
 import { useLocale } from 'next-intl';
 import { careerData } from '@/data/career';
-import Timeline from '@/components/molecules/timeline';
-import TimelineItem from '@/components/molecules/timelineItem';
+import Timeline from '@/components/ui/timeline';
+import TimelineItem from '@/components/ui/timelineItem';
 import type { CareerItem } from '@/data/career';
 
 type CareerSectionProps = {

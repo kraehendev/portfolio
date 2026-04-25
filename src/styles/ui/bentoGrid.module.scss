@@ -1,0 +1,21 @@
+@use "../config.scss" as *;
+
+.bentoGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  width: 100%;
+
+  @include breakpoint(sm) {
+    gap: 1.25rem;
+  }
+
+  @include breakpoint(md) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  @include breakpoint(lg) {
+    gap: 2rem;
+  }
+}

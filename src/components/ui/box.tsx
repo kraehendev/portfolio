@@ -8,7 +8,7 @@ type BoxProps = {
 export default function Box({ children, className = '' }: BoxProps) {
   return (
     <div
-      className={`bg-neutral-900/80 rounded-lg p-6 ${className}`}
+      className={`bg-[var(--bento-card-bg)]/80 rounded-lg p-6 border border-[var(--bento-card-border)] ${className}`}
     >
       {children}
     </div>

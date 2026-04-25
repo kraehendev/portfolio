@@ -1,7 +1,7 @@
-import Box from '@/components/atoms/box';
-import Container from '@/components/atoms/container';
-import Grid from '@/components/molecules/grid';
-import Heading from '@/components/atoms/heading';
+import Box from '@/components/ui/box';
+import Container from '@/components/ui/container';
+import Grid from '@/components/ui/grid';
+import Heading from '@/components/ui/heading';
 import { getTranslations } from 'next-intl/server';
 
 export default async function MediaPage() {

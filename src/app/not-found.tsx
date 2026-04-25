@@ -1,7 +1,7 @@
-import Heading from '@/components/atoms/heading';
-import Box from '@/components/atoms/box';
-import IconLinkButton from '@/components/organisms/iconLinkButton';
-import Paragraph from '@/components/atoms/paragraph';
+import Heading from '@/components/ui/heading';
+import Box from '@/components/ui/box';
+import IconLinkButton from '@/components/sections/iconLinkButton';
+import Paragraph from '@/components/ui/paragraph';
 export default function NotFound() {
   return (
     <div>

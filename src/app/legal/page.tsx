@@ -1,6 +1,6 @@
-import Container from "@/components/atoms/container";
-import Heading from "@/components/atoms/heading";
-import AnimatedLink from "@/components/organisms/animatedLink";
+import Container from "@/components/ui/container";
+import Heading from "@/components/ui/heading";
+import AnimatedLink from "@/components/sections/animatedLink";
 import { getTranslations } from "next-intl/server";
 
 export default async function LegalPage() {

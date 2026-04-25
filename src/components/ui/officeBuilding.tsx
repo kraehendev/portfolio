@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import styles from '../../styles/molecules/officeBuilding.module.scss';
+import styles from '@/styles/ui/officeBuilding.module.scss';
 
 type OfficeBuildingProps = {
   children: ReactNode;

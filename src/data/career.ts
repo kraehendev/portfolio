@@ -48,13 +48,7 @@ export const careerData: CareerItem[] = [
       de: 'Maintenance & Erweiterung des Vodafone Festnetzbereich für Bestandskunden',
       en: 'Maintenance & extension of the Vodafone Fixed Network area for customers',
     },
-    technologies: [
-      'Angular.js',
-      'Bootstrap',
-      'Typo3',
-      'jQuery',
-      'Smarty',
-    ],
+    technologies: ['Angular.js', 'Bootstrap', 'Typo3', 'jQuery', 'Smarty'],
   },
   {
     id: '4',
@@ -71,12 +65,7 @@ export const careerData: CareerItem[] = [
       de: 'Umbau des Frontends im Vodafone Festnetzbereich Neukunden auf responsive Templates, Umstellung sämtlicher Komponenten auf Vue.js und SCSS',
       en: 'Rebuild of the frontend in the Vodafone Fixed Network area for new customers on responsive templates, replacement of all components on Vue.js and SCSS',
     },
-    technologies: [
-      'HTML',
-      'SCSS',
-      'Vue.js',
-      'Typescript',
-    ],
+    technologies: ['HTML', 'SCSS', 'Vue.js', 'Typescript'],
   },
   {
     id: '5',
@@ -93,13 +82,7 @@ export const careerData: CareerItem[] = [
       de: 'Umbau der ion2s Webseite von Typo3 auf Nuxt.js/Vue mit Contentful Anbindung',
       en: 'Rebuild of the ion2s website from Typo3 to Nuxt.js/Vue with Contentful integration',
     },
-    technologies: [
-      'Nuxt.js',
-      'Vue.js',
-      'Typescript',
-      'SCSS',
-      'Contentful',
-    ],
+    technologies: ['Nuxt.js', 'Vue.js', 'Typescript', 'SCSS', 'Contentful'],
   },
   {
     id: '6',
@@ -116,12 +99,7 @@ export const careerData: CareerItem[] = [
       de: 'Betreuung und Erweiterung des Vodafone B2B Festnetzbereichs (Neukunden) im Frontend',
       en: 'Maintenance and extension of the Vodafone B2B Fixed Network area (new customers) in the frontend',
     },
-    technologies: [
-      'Angular.js',
-      'Bootstrap',
-      'Typo3',
-      'jQuery',
-    ],
+    technologies: ['Angular.js', 'Bootstrap', 'Typo3', 'jQuery'],
   },
   {
     id: '7',
@@ -166,13 +144,7 @@ export const careerData: CareerItem[] = [
       de: 'Maintenance & Weiterentwicklung der ion2s Webseite mit Nuxt.js/Vue.js und Contentful Anbindung',
       en: 'Maintenance & further development of the ion2s website with Nuxt.js/Vue.js and Contentful integration',
     },
-    technologies: [
-      'Nuxt.js',
-      'Vue.js',
-      'Typescript',
-      'SCSS',
-      'Contentful',
-    ],
+    technologies: ['Nuxt.js', 'Vue.js', 'Typescript', 'SCSS', 'Contentful'],
   },
   {
     id: '10',
@@ -189,13 +161,7 @@ export const careerData: CareerItem[] = [
       de: 'Relaunch der oxg.de Website in TYPO3. Bei der Umsetzung im Frontend wurden basierend auf Bootstrap neue Komponenten entwickelt.',
       en: 'Relaunch of the oxg.de website in TYPO3. New components were developed based on Bootstrap in the frontend.',
     },
-    technologies: [
-      'HTML',
-      'SCSS',
-      'Bootstrap',
-      'Typo3',
-      'jQuery'
-    ],
+    technologies: ['HTML', 'SCSS', 'Bootstrap', 'Typo3', 'jQuery'],
   },
   {
     id: '11',
@@ -210,41 +176,13 @@ export const careerData: CareerItem[] = [
     type: 'certification',
     startDate: '2022-05',
     endDate: '2024-05',
-    technologies: [
-      'Contentful',
-    ],
+    technologies: ['Contentful'],
   },
   {
     id: '12',
     title: {
-      de: 'Full Stack Developer für PYUR Website',
-      en: 'Full Stack Developer for PYUR Website',
-    },
-    company: 'ion2s',
-    location: 'Darmstadt',
-    startDate: '2024-05',
-    endDate: '2025-04',
-    type: 'work',
-    description: {
-      de: 'Neuentwicklung des B2C-Webshop mit React Remix und Contentful Anbindung, Entwicklung von Frontend Komponenten basierend auf Figma-Designs, Checkout-Logik und Seitenbaum implementiert basierend auf Produkte und Content Elementen in Contentful, sowie Inputvalidierung mit ZOD',
-      en: 'Rebuild of the B2C webshop with React Remix and Contentful integration, development of frontend components based on Figma designs, checkout logic and page tree implemented based on products and content elements in Contentful, as well as input validation with ZOD',
-    },
-    technologies: [
-      'React',
-      'Remix',
-      'Chakra UI',
-      'Typescript',
-      'SCSS',
-      'Contentful',
-      'GraphQL',
-      'ZOD',
-    ],
-  },
-  {
-    id: '13',
-    title: {
-      de: 'Web Developer für Ponnath Website',
-      en: 'Web Developer for Ponnath Website',
+      de: 'Full Stack Developer für Ponnath Website',
+      en: 'Full Stack Developer for Ponnath Website',
     },
     company: 'ion2s',
     location: 'Darmstadt',
@@ -262,6 +200,32 @@ export const careerData: CareerItem[] = [
       'SCSS',
       'Contentful',
       'Typescript',
+    ],
+  },
+  {
+    id: '13',
+    title: {
+      de: 'Full Stack Developer für PYUR Website',
+      en: 'Full Stack Developer for PYUR Website',
+    },
+    company: 'ion2s',
+    location: 'Darmstadt',
+    startDate: '2024-05',
+    endDate: '2025-06',
+    type: 'work',
+    description: {
+      de: 'Neuentwicklung des B2C-Webshop mit React Remix und Contentful Anbindung, Entwicklung von Frontend Komponenten basierend auf Figma-Designs, Checkout-Logik und Seitenbaum implementiert basierend auf Produkte und Content Elementen in Contentful, sowie Inputvalidierung mit ZOD',
+      en: 'Rebuild of the B2C webshop with React Remix and Contentful integration, development of frontend components based on Figma designs, checkout logic and page tree implemented based on products and content elements in Contentful, as well as input validation with ZOD',
+    },
+    technologies: [
+      'React',
+      'Remix',
+      'Chakra UI',
+      'Typescript',
+      'SCSS',
+      'Contentful',
+      'GraphQL',
+      'ZOD',
     ],
   },
   {

@@ -9,11 +9,8 @@
 }
 
 .footerBackground {
-  background-color: #101010;
-  background-image: url("../../../public/street_sprite_v5.png");
-  background-size: auto 200px;
-  background-position: bottom;
-  background-repeat: repeat-x;
+  background-color: var(--bento-card-bg);
+  border-top: 1px solid var(--bento-card-border);
   height: 100%;
   width: 100%;
 }
