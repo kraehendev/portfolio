@@ -18,11 +18,13 @@ type TranslatedCareerItem = Omit<CareerItem, 'title' | 'description'> & {
 export default function CareerSection({ className = '' }: CareerSectionProps) {
   const locale = useLocale() as 'de' | 'en';
 
-  const translatedCareerData: TranslatedCareerItem[] = careerData.map((item) => ({
-    ...item,
-    title: item.title[locale],
-    description: item.description[locale],
-  }));
+  const translatedCareerData: TranslatedCareerItem[] = careerData.map(
+    (item) => ({
+      ...item,
+      title: item.title[locale],
+      description: item.description[locale],
+    }),
+  );
 
   return (
     <div className={className}>
