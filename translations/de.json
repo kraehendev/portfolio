@@ -5,6 +5,7 @@
   "welcome": "Hi! 🙂",
   "Intro": "Ich heiße Flo! Fullstack Developer, Fotograf, Videograf, Luftfahrt Enthusiast",
   "navigation": {
+    "main": "Hauptnavigation",
     "me": "Ich :)",
     "tech": "Techstack",
     "career": "Werdegang",

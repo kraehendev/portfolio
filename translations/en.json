@@ -4,6 +4,7 @@
   },
   "welcome": "Welcome to my website",
   "navigation": {
+    "main": "Main navigation",
     "me": "About Me",
     "tech": "Tech Stack",
     "career": "Career",

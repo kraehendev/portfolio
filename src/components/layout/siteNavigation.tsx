@@ -10,16 +10,14 @@ import Burger from '@/components/icons/burger';
 import Close from '@/components/icons/close';
 import styles from '@/styles/layout/header.module.scss';
 
-export default function MobileNavigation() {
+const NAV_ID = 'site-navigation';
+
+const BODY_NAV_OPEN = 'site-nav-open';
+
+export default function SiteNavigation() {
   const [isOpen, setIsOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const t = useTranslations();
   const pathname = usePathname();
-
-  // Ensure we only render portal on client
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -29,27 +27,60 @@ export default function MobileNavigation() {
     setIsOpen(false);
   };
 
-  // Close menu when route changes
   useEffect(() => {
     closeMenu();
   }, [pathname]);
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
+      document.body.classList.add(BODY_NAV_OPEN);
       document.body.style.overflow = 'hidden';
     } else {
+      document.body.classList.remove(BODY_NAV_OPEN);
       document.body.style.overflow = '';
     }
     return () => {
+      document.body.classList.remove(BODY_NAV_OPEN);
       document.body.style.overflow = '';
     };
   }, [isOpen]);
 
-  const menuContent = isOpen && mounted ? (
+  return (
     <>
-      <div className={styles.mobileMenuOverlay} onClick={closeMenu} />
-      <nav className={styles.mobileNavigation}>
+      <button
+        type="button"
+        className={styles.mobileMenuButton}
+        onClick={toggleMenu}
+        aria-label={isOpen ? 'Close menu' : 'Open menu'}
+        aria-expanded={isOpen}
+        aria-controls={NAV_ID}
+      >
+        <Burger className={styles.mobileMenuIcon} size={24} />
+      </button>
+      {isOpen ? (
+        <div
+          className={styles.mobileMenuOverlay}
+          onClick={closeMenu}
+          aria-hidden
+        />
+      ) : null}
+      <nav
+        id={NAV_ID}
+        className={`${styles.siteNavigation} ${isOpen ? styles.siteNavigationOpen : ''}`}
+        aria-label={t('navigation.main')}
+        aria-hidden={!isOpen}
+        inert={!isOpen ? true : undefined}
+      >
+        <div>
+          <button
+            type="button"
+            className={styles.mobileMenuCloseButton}
+            onClick={closeMenu}
+            aria-label="Close menu"
+          >
+            <Close className={styles.mobileMenuIcon} size={24} />
+          </button>
+        </div>
         <ul className={styles.mobileNavList}>
           {navigationData.map((item) => {
             const Icon = item.icon;
@@ -71,24 +102,6 @@ export default function MobileNavigation() {
           })}
         </ul>
       </nav>
-    </>
-  ) : null;
-
-  return (
-    <>
-      <button
-        className={styles.mobileMenuButton}
-        onClick={toggleMenu}
-        aria-label={isOpen ? 'Close menu' : 'Open menu'}
-        aria-expanded={isOpen}
-      >
-        {isOpen ? (
-          <Close className={styles.mobileMenuIcon} size={24} />
-        ) : (
-          <Burger className={styles.mobileMenuIcon} size={24} />
-        )}
-      </button>
-      {mounted && menuContent && createPortal(menuContent, document.body)}
     </>
   );
 }
