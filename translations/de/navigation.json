@@ -1,0 +1,19 @@
+{
+  "navigation": {
+    "main": "Hauptnavigation",
+    "me": "Über mich",
+    "tech": "Techstack",
+    "career": "Werdegang",
+    "welcome": "Willkommen",
+    "contact": "Kontakt",
+    "menu": "Menü",
+    "openMenu": "Menü öffnen",
+    "close": "Schließen",
+    "closeMenu": "Menü schließen"
+  },
+  "language": {
+    "switch": "Sprache wechseln",
+    "de": "Deutsch",
+    "en": "Englisch"
+  }
+}

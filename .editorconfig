@@ -11,7 +11,7 @@ end_of_line = lf
 insert_final_newline = true
 # Tab indentation (4 space indentation, default)
 indent_style = space
-indent_size = 4
+indent_size = 2
 trim_trailing_whitespace = true
 
 # Tab indentation (2 space indentation, use default style)
@@ -25,5 +25,5 @@ indent_style = tab
 [*.md]
 trim_trailing_whitespace = false
 
-[*.ts]
+[*.{ts,tsx}]
 quote_type = single

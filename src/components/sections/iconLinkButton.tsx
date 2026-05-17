@@ -1,0 +1,41 @@
+import type {
+  ButtonHTMLAttributes,
+  AnchorHTMLAttributes,
+  MouseEventHandler,
+} from 'react';
+import { Button, ButtonProps } from '@/components/ui/button';
+import styles from '@/styles/sections/iconLinkButton.module.scss';
+
+type IconLinkButtonProps = {
+  label: string;
+  href: string;
+  theme?: ButtonProps['theme'];
+  disabled?: boolean;
+  onclick?: MouseEventHandler<HTMLButtonElement>;
+} & ButtonHTMLAttributes<HTMLButtonElement> &
+  Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>;
+
+export default function IconLinkButton({
+  label,
+  href,
+  theme = 'primary',
+  disabled = false,
+  onclick,
+  ...props
+}: IconLinkButtonProps) {
+
+  return (
+    <div className={styles.wrapper}>
+      <Button
+        href={href}
+        theme={theme}
+        disabled={disabled}
+        onclick={onclick}
+        resetSpacing={true}
+        {...props}
+      >
+        {label}
+      </Button>
+    </div>
+  );
+};

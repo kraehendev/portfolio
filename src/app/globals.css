@@ -1,26 +1,76 @@
 @import "tailwindcss";
 
+@source inline('{sm:,md:,lg:,xl:,}grid-cols-{1,2,3,4,5,6,7,8,9,10,11,12}');
+@source inline('{sm:,md:,lg:,xl:,}gap-{1,2,3,4,5,6,7,8,9,10,11,12}');
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --site-nav-width: min(280px, 85vw);
+  --site-footer-band-height: 8rem;
+  --site-footer-padding-top: 1rem;
+  --site-footer-padding-bottom: 1.5rem;
+
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+  /* Raised panels, nav chrome, bordered boxes */
+  --elevated-surface-bg: #1e293b;
+  --elevated-surface-border: rgba(241, 245, 249, 0.15);
+  --elevated-surface-shadow: rgba(0, 0, 0, 0.2);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-montserrat), Arial, Helvetica, sans-serif;
+  --breakpoint-lg: 992px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: var(--background);
+  min-height: 100vh;
+  transition: all 0.3s ease-in-out;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  padding-top: 60px;
+
+  @media (min-width: 992px) {
+    padding-top: 0;
+  }
+}
+
+.site-footer-band {
+  box-sizing: border-box;
+  min-height: var(--site-footer-band-height);
+  padding-top: var(--site-footer-padding-top);
+  padding-bottom: var(--site-footer-padding-bottom);
+  border-top: 1px solid var(--elevated-surface-border);
+  background: var(--background);
+}
+
+@media (min-width: 992px) {
+  .site-footer-band {
+    height: var(--site-footer-band-height);
+    min-height: 0;
+  }
 }

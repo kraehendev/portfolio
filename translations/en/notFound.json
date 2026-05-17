@@ -1,0 +1,7 @@
+{
+  "notFound": {
+    "title": "This is not the page you are looking for. (⓿_⓿)",
+    "message": "I'm sorry, I couldn't find anything under this URL. Please go back to the home page.",
+    "returnHome": "Return home"
+  }
+}

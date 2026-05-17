@@ -1,0 +1,18 @@
+{
+  "privacy": {
+    "intro1": "The operator of this website takes the protection of your personal data very seriously. I treat your personal data confidentially and in accordance with statutory data protection regulations and this privacy policy.",
+    "intro2": "Our website can usually be used without providing personal data. Where personal data (such as name, address, or email addresses) is collected on my site, this is done on a voluntary basis wherever possible. This data will not be passed on to third parties without your express consent.",
+    "intro3": "Please note that data transmission over the Internet (e.g. when communicating by email) may have security gaps. Complete protection of data against access by third parties is not possible.",
+    "serverLogFilesTitle": "Server log files",
+    "serverLogFilesIntro": "The provider of the pages automatically collects and stores information in so-called server log files that your browser transmits to us automatically. These are:",
+    "serverLogFilesItems": {
+      "browser": "Browser type and version",
+      "os": "Operating system used",
+      "referrer": "Referrer URL",
+      "host": "Host name of the accessing computer",
+      "time": "Time of the server request"
+    },
+    "serverLogFilesOutro": "This data cannot be assigned to specific individuals. This data is not merged with other data sources. I reserve the right to check this data retrospectively if I become aware of concrete evidence of unlawful use.",
+    "source": "Source:"
+  }
+}

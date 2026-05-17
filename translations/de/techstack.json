@@ -1,0 +1,17 @@
+{
+  "techstack": {
+    "levelLegend": "Kenntnisstand",
+    "levels": {
+      "primary": "Experte",
+      "secondary": "Fortgeschritten",
+      "tertiary": "Grundkenntnisse"
+    },
+    "categories": {
+      "languages": "Programmiersprachen & Markup",
+      "frameworks": "Frameworks & Libraries",
+      "cms": "CMS",
+      "tools": "Tools & Infrastruktur",
+      "methods": "Methoden"
+    }
+  }
+}

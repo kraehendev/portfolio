@@ -1,0 +1,7 @@
+{
+  "pwa": {
+    "offlineTitle": "Du bist offline",
+    "offlineMessage": "Diese Seite ist ohne Verbindung nicht verfügbar. Prüfe deine Netzwerkverbindung und versuche es erneut.",
+    "retry": "Erneut versuchen"
+  }
+}
