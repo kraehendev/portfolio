@@ -48,6 +48,7 @@ body {
   flex-direction: column;
   font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
   min-height: 100vh;
+  overflow-x: clip;
 }
 
 main {
