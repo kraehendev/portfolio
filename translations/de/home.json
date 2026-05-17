@@ -1,0 +1,12 @@
+{
+  "home": {
+    "techstack": {
+      "title": "Mein Techstack",
+      "intro": "Hier eine kleine Übersicht mit was ich bereits gearbeitet habe und wie ich meinen Skill darin selbst einschätze."
+    },
+    "career": {
+      "title": "Mein Werdegang",
+      "intro": "Meine berufliche Laufbahn von der Ausbildung bis heute."
+    }
+  }
+}

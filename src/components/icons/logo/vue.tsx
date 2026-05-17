@@ -6,116 +6,11 @@ export default function Vue({ className = '', size = 16 }: IconProps) {
       className={className}
       width={size}
       height={size}
-      viewBox="0 0 64 64"
+      viewBox="0 0 128 128"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect id="Icons" x="-512" y="-128" width="1280" height="800" fill="none" />
-
-      <g id="Icons1">
-        <g id="Strike"></g>
-      </g>
-
-      <g id="H1"></g>
-
-      <g id="H2"></g>
-
-      <g id="H3"></g>
-
-      <g id="list-ul"></g>
-
-      <g id="hamburger-1"></g>
-
-      <g id="hamburger-2"></g>
-
-      <g id="list-ol"></g>
-
-      <g id="list-task"></g>
-
-      <g id="trash"></g>
-
-      <g id="vertical-menu"></g>
-
-      <g id="horizontal-menu"></g>
-
-      <g id="sidebar-2"></g>
-
-      <g id="Pen"></g>
-
-      <g id="Pen1"></g>
-
-      <g id="clock"></g>
-
-      <g id="external-link"></g>
-
-      <g id="hr"></g>
-
-      <g id="info"></g>
-
-      <g id="warning"></g>
-
-      <g id="plus-circle"></g>
-
-      <g id="minus-circle"></g>
-
-      <g id="vue">
-        <path
-          d="M17.595,11.204l8.91,0l5.536,9.391l5.591,-9.391l8.831,0l-14.422,25.359l-14.446,-25.359Z"
-          fill="currentColor"
-        />
-
-        <path
-          d="M8.089,11.204l23.952,41.845l24.126,-41.845l-9.704,0l-14.422,25.359l-14.446,-25.359l-9.506,0Z"
-          fill="currentColor"
-        />
-      </g>
-
-      <g id="cog"></g>
-
-      <g id="logo"></g>
-
-      <g id="radio-check"></g>
-
-      <g id="eye-slash"></g>
-
-      <g id="eye"></g>
-
-      <g id="toggle-off"></g>
-
-      <g id="shredder"></g>
-
-      <g id="spinner--loading--dots-"></g>
-
-      <g id="react"></g>
-
-      <g id="check-selected"></g>
-
-      <g id="turn-off"></g>
-
-      <g id="code-block"></g>
-
-      <g id="user"></g>
-
-      <g id="coffee-bean"></g>
-
-      <g id="coffee-beans">
-        <g id="coffee-bean1"></g>
-      </g>
-
-      <g id="coffee-bean-filled"></g>
-
-      <g id="coffee-beans-filled">
-        <g id="coffee-bean2"></g>
-      </g>
-
-      <g id="clipboard"></g>
-
-      <g id="clipboard-paste"></g>
-
-      <g id="clipboard-copy"></g>
-
-      <g id="Layer1"></g>
-
+      <path d="M0 8.934l49.854.158 14.167 24.47 14.432-24.47L128 8.935l-63.834 110.14zm126.98.637l-24.36.02-38.476 66.053L25.691 9.592.942 9.572l63.211 107.89zm-25.149-.008l-22.745.168-15.053 24.647L49.216 9.73l-22.794-.168 37.731 64.476zm-75.834-.17l23.002.009m-23.002-.01l23.002.01" fill="none"/><path d="M25.997 9.393l23.002.009L64.035 34.36 79.018 9.404 102 9.398 64.15 75.053z" fill="#35495e"/><path d="M.91 9.569l25.067-.172 38.15 65.659L101.98 9.401l25.11.026-62.966 108.06z" fill="#41b883"/>
     </svg>
   );
 }

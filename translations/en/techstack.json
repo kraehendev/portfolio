@@ -1,0 +1,17 @@
+{
+  "techstack": {
+    "levelLegend": "Skill level",
+    "levels": {
+      "primary": "Expert",
+      "secondary": "Intermediate",
+      "tertiary": "Beginner"
+    },
+    "categories": {
+      "languages": "Languages & markup",
+      "frameworks": "Frameworks & libraries",
+      "cms": "CMS",
+      "tools": "Tools & infrastructure",
+      "methods": "Methods"
+    }
+  }
+}

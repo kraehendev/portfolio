@@ -1,0 +1,66 @@
+{
+  "career": {
+    "timelineStart": "Start of career path",
+    "ion2sAccordion": "Projects and certifications at ion2s",
+    "today": "Present",
+    "typeWork": "Work",
+    "typeEducation": "Education",
+    "typeCertification": "Certification",
+    "groups": {
+      "jobsuche": {
+        "title": "Job Search",
+        "description": "Actively seeking new opportunities as a Fullstack/Frontend Developer."
+      },
+      "ion2s": {
+        "title": "Web Developer at ion2s",
+        "description": "Development and maintenance of web projects for telecom and other customers - from TYPO3 and Angular portals through Vue and Nuxt to Next.js, React, and Remix with Contentful.",
+        "projects": {
+          "13": {
+            "title": "Full Stack Developer for PYUR Website",
+            "description": "Rebuild of the B2C webshop with React Remix and Contentful integration, development of frontend components based on Figma designs, checkout logic and page tree implemented based on products and content elements in Contentful, as well as input validation with ZOD"
+          },
+          "12": {
+            "title": "Full Stack Developer for Ponnath Website",
+            "description": "Takeover of the Ponnath.de website from the predecessor agency, regular technical updates, as well as the installation of various new features including the Coveto plugin for displaying job advertisements and czech and english localization"
+          },
+          "10": {
+            "title": "Web Developer for oxg.de Website",
+            "description": "Relaunch of the oxg.de website in TYPO3. New components were developed based on Bootstrap in the frontend."
+          },
+          "7": {
+            "title": "Web Developer for Vodafone B2B Fixed Network new customer portal",
+            "description": "Rebuild of the frontend in the Vodafone B2B Fixed Network area (new customers) on Next.js, replacement of all components on React as well as the development of new frontend components"
+          },
+          "9": {
+            "title": "Full Stack Developer for ion2s Website",
+            "description": "Maintenance & further development of the ion2s website with Nuxt.js/Vue.js and Contentful integration"
+          },
+          "6": {
+            "title": "Web Developer for Vodafone Fixed Network new customer portal",
+            "description": "Maintenance and extension of the Vodafone B2B Fixed Network area (new customers) in the frontend"
+          },
+          "11": {
+            "title": "Contentful Certified Professional",
+            "description": "Certification as Contentful Certified Professional for professional work with the Contentful platform."
+          },
+          "5": {
+            "title": "Full Stack Developer for ion2s Website",
+            "description": "Rebuild of the ion2s website from Typo3 to Nuxt.js/Vue with Contentful integration"
+          },
+          "4": {
+            "title": "Web Developer for Vodafone Fixed Network new customer portal",
+            "description": "Rebuild of the frontend in the Vodafone Fixed Network area for new customers on responsive templates, replacement of all components on Vue.js and SCSS"
+          },
+          "2": {
+            "title": "Web Developer for Vodafone Fixed Network customer portal",
+            "description": "Maintenance & extension of the Vodafone Fixed Network area for customers"
+          }
+        }
+      },
+      "ausbildung": {
+        "title": "Apprenticeship as IT Specialist in System Integration",
+        "description": "Apprenticeship as an IT specialist with a focus on system integration. First experiences in web development and programming."
+      }
+    }
+  }
+}

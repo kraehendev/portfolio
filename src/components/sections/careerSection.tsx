@@ -1,42 +1,28 @@
-'use client';
-
-import { useLocale } from 'next-intl';
-import { careerData } from '@/data/career';
-import Timeline from '@/components/ui/timeline';
-import TimelineItem from '@/components/ui/timelineItem';
-import type { CareerItem } from '@/data/career';
+import { getLocale, getTranslations } from 'next-intl/server';
+import type { Locale } from '@/i18n/routing';
+import {
+  careerDateLocale,
+  translateCareerData,
+} from '@/lib/translateCareer';
+import CareerTimeline from '@/components/sections/careerTimeline';
 
 type CareerSectionProps = {
   className?: string;
 };
 
-type TranslatedCareerItem = Omit<CareerItem, 'title' | 'description'> & {
-  title: string;
-  description: string;
-};
-
-export default function CareerSection({ className = '' }: CareerSectionProps) {
-  const locale = useLocale() as 'de' | 'en';
-
-  const translatedCareerData: TranslatedCareerItem[] = careerData.map(
-    (item) => ({
-      ...item,
-      title: item.title[locale],
-      description: item.description[locale],
-    }),
-  );
+export default async function CareerSection({
+  className = '',
+}: CareerSectionProps) {
+  const locale = (await getLocale()) as Locale;
+  const t = await getTranslations('career');
+  const { items, labels } = translateCareerData(locale, t);
 
   return (
-    <div className={className}>
-      <Timeline>
-        {translatedCareerData.map((item, index) => (
-          <TimelineItem
-            key={item.id}
-            item={item}
-            isLast={index === translatedCareerData.length - 1}
-          />
-        ))}
-      </Timeline>
-    </div>
+    <CareerTimeline
+      className={className}
+      items={items}
+      labels={labels}
+      dateLocale={careerDateLocale(locale)}
+    />
   );
 }

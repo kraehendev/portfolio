@@ -5,8 +5,6 @@ import type {
 } from 'react';
 import { Button, ButtonProps } from '@/components/ui/button';
 import styles from '@/styles/sections/iconLinkButton.module.scss';
-import AnimatedLinkLabel from '@/components/ui/animatedLinkLabel';
-import { isExternalLink } from '@/utils';
 
 type IconLinkButtonProps = {
   label: string;
@@ -36,7 +34,7 @@ export default function IconLinkButton({
         resetSpacing={true}
         {...props}
       >
-        <AnimatedLinkLabel label={label} isExternal={isExternalLink(href)} />
+        {label}
       </Button>
     </div>
   );

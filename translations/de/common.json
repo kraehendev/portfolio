@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "description": "Portfolio des erfahrenen Fullstack-Entwicklers Florian Kuehne.",
+    "appName": "Florian Kuehne",
+    "defaultTitle": "Florian Kuehne — Fullstack Developer"
+  },
+  "siteLogo": "Florian Kühne",
+  "welcome": "Hi! Willkommen auf meinem Portfolio 👋",
+  "contactLead": "Schreib mir gern für Projekte, Fragen oder Austausch.",
+  "privacyPolicy": "Datenschutz",
+  "legalNotice": "Impressum",
+  "footer": {
+    "privacyPolicy": "Datenschutz",
+    "legalNotice": "Impressum",
+    "copyright": "© 2026 Florian Kuehne"
+  },
+  "pageEnd": {
+    "madeWith": "Mit viel ♥️, Schweiss und Tokens gemacht. Und ja, ich mag Flugzeuge. 🛫"
+  }
+}

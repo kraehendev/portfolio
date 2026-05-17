@@ -1,0 +1,66 @@
+{
+  "career": {
+    "timelineStart": "Beginn des Werdegangs",
+    "ion2sAccordion": "Projekte und Zertifizierungen bei ion2s",
+    "today": "Heute",
+    "typeWork": "Arbeit",
+    "typeEducation": "Ausbildung",
+    "typeCertification": "Zertifizierung",
+    "groups": {
+      "jobsuche": {
+        "title": "Jobsuche",
+        "description": "Aktiv auf der Suche nach neuen Möglichkeiten als Fullstack/Frontend Developer."
+      },
+      "ion2s": {
+        "title": "Webentwickler bei ion2s",
+        "description": "Entwicklung und Wartung von Webprojekten für Telekommunikations- und andere Kunden - von TYPO3- und Angular-Portalen über Vue und Nuxt bis zu Next.js, React und Remix mit Contentful.",
+        "projects": {
+          "13": {
+            "title": "Full Stack Developer für PYUR Website",
+            "description": "Neuentwicklung des B2C-Webshop mit React Remix und Contentful Anbindung, Entwicklung von Frontend Komponenten basierend auf Figma-Designs, Checkout-Logik und Seitenbaum implementiert basierend auf Produkte und Content Elementen in Contentful, sowie Inputvalidierung mit ZOD"
+          },
+          "12": {
+            "title": "Full Stack Developer für Ponnath Website",
+            "description": "Übernahme der Ponnath.de Webseite von der Vorgängeragentur, regelmäßige technische Aktualisierungen, sowie Einbau verschiedener neuer Features u.a. Coveto Plugin zum Anzeigen von Stellenanzeigen und tschechische und englische Lokalisierung"
+          },
+          "10": {
+            "title": "Web Developer für oxg.de Website",
+            "description": "Relaunch der oxg.de Website in TYPO3. Bei der Umsetzung im Frontend wurden basierend auf Bootstrap neue Komponenten entwickelt."
+          },
+          "7": {
+            "title": "Web Developer für Vodafone B2B Festnetz Neukunden Portal",
+            "description": "Umbau des Frontends im Vodafone B2B Festnetzbereich (Neukunden) auf Next.js, Umstellung sämtlicher Komponenten auf React sowie die Entwicklung neuer Frontend Komponenten"
+          },
+          "9": {
+            "title": "Full Stack Developer für ion2s Website",
+            "description": "Maintenance & Weiterentwicklung der ion2s Webseite mit Nuxt.js/Vue.js und Contentful Anbindung"
+          },
+          "6": {
+            "title": "Web Developer für Vodafone B2B Festnetz Neukunden Portal",
+            "description": "Betreuung und Erweiterung des Vodafone B2B Festnetzbereichs (Neukunden) im Frontend"
+          },
+          "11": {
+            "title": "Contentful Certified Professional",
+            "description": "Zertifizierung als Contentful Certified Professional für professionelle Arbeit mit der Contentful-Plattform."
+          },
+          "5": {
+            "title": "Full Stack Developer für ion2s Website",
+            "description": "Umbau der ion2s Webseite von Typo3 auf Nuxt.js/Vue mit Contentful Anbindung"
+          },
+          "4": {
+            "title": "Web Developer für Vodafone Festnetz Neukunden Portal",
+            "description": "Umbau des Frontends im Vodafone Festnetzbereich Neukunden auf responsive Templates, Umstellung sämtlicher Komponenten auf Vue.js und SCSS"
+          },
+          "2": {
+            "title": "Web Developer für Vodafone Festnetz Bestandskunden Portal",
+            "description": "Maintenance & Erweiterung des Vodafone Festnetzbereich für Bestandskunden"
+          }
+        }
+      },
+      "ausbildung": {
+        "title": "Ausbildung zum Fachinformatiker Systemintegration",
+        "description": "Ausbildung zum Fachinformatiker für Systemintegration. Erste Erfahrungen in der Web-Entwicklung und Programmierung."
+      }
+    }
+  }
+}

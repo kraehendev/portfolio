@@ -7,6 +7,6 @@ type ParagraphProps = {
 
 export default function Paragraph({ children, className }: ParagraphProps) {
   return (
-    <p className={`text-md text-foreground mt-2 ${className}`}>{children}</p>
+    <p className={`text-lg text-foreground mt-2 ${className}`}>{children}</p>
   );
-};
+}

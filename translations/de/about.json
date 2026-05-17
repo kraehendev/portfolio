@@ -1,0 +1,8 @@
+{
+  "about": {
+    "title": "Über mich",
+    "imageAlt": "Profilbild",
+    "paragraph1": "Seit 10 Jahren beschäftige ich mich überwiegend mit der Webentwicklung und habe dabei mit verschiedenen Technologien gearbeitet. Meine Anfänge habe ich mit der Frontendentwicklung gemacht, mich in HTML, CSS und JavaScript eingearbeitet und erste Schritte in Frameworks wie Bootstrap, jQuery und Vue gemacht. Auch schon damals habe ich kleine Schritte in Backend-Technologien gemacht, wie PHP, Python, Go und mit Datenbanken wie MySQL gemacht.",
+    "paragraph2": "Über die Zeit und durch neue Möglichkeiten der Webentwicklung habe ich mich zum Fullstack Developer entwickelt und arbeite heute am liebsten mit Next.js, React und TypeScript."
+  }
+}

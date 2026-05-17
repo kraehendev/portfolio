@@ -1,20 +1,19 @@
+import { getTranslations } from 'next-intl/server';
 import Heading from '@/components/ui/heading';
 import Box from '@/components/ui/box';
 import IconLinkButton from '@/components/sections/iconLinkButton';
 import Paragraph from '@/components/ui/paragraph';
-export default function NotFound() {
+
+export default async function NotFound() {
+  const t = await getTranslations();
+
   return (
     <div>
       <Box>
-        <Heading as="h2">
-          This is not the page you are looking for. {'(⓿_⓿)'}
-        </Heading>
-        <Paragraph>
-          Im sorry, i couldnt find anything under this URL. Please go back to
-          the home page.
-        </Paragraph>
+        <Heading as="h2">{t('notFound.title')}</Heading>
+        <Paragraph>{t('notFound.message')}</Paragraph>
         <div className="mt-2">
-          <IconLinkButton href="/" label="Return Home" />
+          <IconLinkButton href="/" label={t('notFound.returnHome')} />
         </div>
       </Box>
     </div>

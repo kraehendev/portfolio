@@ -5,6 +5,7 @@ export type HeadingProps = {
   children: ReactNode;
   as?: ElementType;
   className?: string;
+  id?: string;
 };
 
 export const headingStyles: Record<string, string> = {
@@ -20,11 +21,15 @@ export default function Heading({
   children,
   as: Tag = 'h1',
   className = '',
+  id,
 }: HeadingProps) {
   const tagName = typeof Tag === 'string' ? Tag : 'h1';
   const defaultStyle = headingStyles[tagName] || '';
   return (
-    <Tag className={classNameSummary([defaultStyle, 'mb-2', className])}>
+    <Tag
+      id={id}
+      className={classNameSummary([defaultStyle, 'mb-8', className])}
+    >
       {children}
     </Tag>
   );

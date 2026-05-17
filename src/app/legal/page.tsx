@@ -1,27 +1,51 @@
-import Container from "@/components/ui/container";
-import Heading from "@/components/ui/heading";
-import AnimatedLink from "@/components/sections/animatedLink";
-import { getTranslations } from "next-intl/server";
+import Container from '@/components/ui/container';
+import Heading from '@/components/ui/heading';
+import Paragraph from '@/components/ui/paragraph';
+import { contactLinks } from '@/data/contactLinks';
+import { getTranslations } from 'next-intl/server';
 
 export default async function LegalPage() {
   const t = await getTranslations();
+  const legal = await getTranslations('legal');
+
   return (
-    <main>
+    <div className="py-8 lg:py-10">
       <Container>
         <Heading>{t('legalNotice')}</Heading>
-        <p>
-        Angaben gemäß § 5 TMG:
-        Florian Kühne
-        Kontakt:
-        E-Mail: email@florian-kuehne.de
-        Urheberrecht
-        Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
-        Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
 
-        Quelle: <AnimatedLink href="https://www.erecht24.de" label="erecht24.de" />
+        <Heading as="h2" className="mt-8">
+          {legal('tmgTitle')}
+        </Heading>
+        <Paragraph>{legal('name')}</Paragraph>
 
-        </p>
+        <Heading as="h2" className="mt-8">
+          {legal('contactTitle')}
+        </Heading>
+        <Paragraph>
+          {legal('emailLabel')}{' '}
+          <a href={`mailto:${contactLinks.email}`} className="underline">
+            {contactLinks.email}
+          </a>
+        </Paragraph>
+
+        <Heading as="h2" className="mt-8">
+          {legal('copyrightTitle')}
+        </Heading>
+        <Paragraph>{legal('copyright1')}</Paragraph>
+        <Paragraph>{legal('copyright2')}</Paragraph>
+
+        <Paragraph className="mt-8">
+          {legal('source')}{' '}
+          <a
+            href="https://www.erecht24.de"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            erecht24.de
+          </a>
+        </Paragraph>
       </Container>
-    </main>
+    </div>
   );
 }

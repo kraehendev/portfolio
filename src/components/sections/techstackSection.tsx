@@ -1,67 +1,61 @@
-import type { ComponentType } from 'react';
-import Grid from '@/components/ui/grid';
-import IconLabel from '@/components/ui/iconLabel';
-import type { IconProps } from '@/utils';
-
-type TechstackItem = {
-  label: string;
-  level?: 'expert' | 'intermediate' | 'beginner';
-  icon?: ComponentType<IconProps>;
-};
+import { getTranslations } from 'next-intl/server';
+import Badge from '@/components/ui/badge';
+import Heading from '@/components/ui/heading';
+import {
+  compareBySkillLevel,
+  SKILL_BADGE_THEMES,
+} from '@/components/ui/badgeThemes';
+import type { TechstackCategory } from '@/data/techstack';
 
 type TechstackSectionProps = {
-  items: TechstackItem[];
+  categories: TechstackCategory[];
   className?: string;
 };
 
-export default function TechstackSection({
-  items,
+export default async function TechstackSection({
+  categories,
   className = '',
 }: TechstackSectionProps) {
-  const levelClasses: Record<NonNullable<TechstackItem['level']>, string> = {
-    expert: 'bg-[#8b7355]/30 text-foreground',
-    intermediate: 'bg-[#a68b6f]/30 text-foreground',
-    beginner: 'bg-[#c4a882]/30 text-foreground',
-  };
+  const t = await getTranslations('techstack');
 
   return (
     <div className={className}>
-      <div className="flex flex-col gap-6 md:flex-row">
-        <div className="md:w-[30%]">
-          <div className="text-sm font-semibold uppercase tracking-wide text-foreground/70">
-            Level
-          </div>
-          <ul className="mt-3 space-y-2 text-sm">
-            {(
-              [
-                { level: 'expert', label: 'Expert' },
-                { level: 'intermediate', label: 'Intermediate' },
-                { level: 'beginner', label: 'Beginner' },
-              ] as const
-            ).map(({ level, label }) => (
-              <li key={level} className="flex items-center gap-2">
-                <span
-                  className={`inline-flex h-3 w-3 rounded ${levelClasses[level]}`}
-                />
-                <span>{label}</span>
-              </li>
-            ))}
-          </ul>
+      <div className="mb-8 rounded-lg border border-[var(--elevated-surface-border)] bg-[var(--elevated-surface-bg)]/60 p-4">
+        <div className="text-sm font-semibold uppercase tracking-wide text-foreground/70">
+          {t('levelLegend')}
         </div>
-        <div className="md:w-[70%]">
-          <Grid cols={{ base: 4, md: 6, lg: 8 }} gap={4}>
-            {items.map((item) => (
-              <IconLabel
-                key={item.label}
-                label={item.label}
-                icon={item.icon}
-                iconWrapperClassName={
-                  item.level ? levelClasses[item.level] : 'bg-[var(--bento-card-bg)]/50'
-                }
-              />
-            ))}
-          </Grid>
-        </div>
+        <ul className="mt-3 flex flex-wrap gap-2">
+          {SKILL_BADGE_THEMES.map((theme) => (
+            <li key={theme}>
+              <Badge theme={theme}>{t(`levels.${theme}`)}</Badge>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="grid grid-cols-1 gap-10 xl:grid-cols-2">
+        {categories.map((category) => (
+          <section
+            key={category.categoryKey}
+            aria-labelledby={`techstack-${category.categoryKey}`}
+            className="rounded-lg border border-dashed border-[var(--elevated-surface-border)] p-6"
+          >
+            <Heading
+              as="h3"
+              id={`techstack-${category.categoryKey}`}
+              className="mb-4 text-foreground/90"
+            >
+              {t(`categories.${category.categoryKey}`)}
+            </Heading>
+            <div className="flex flex-wrap gap-2">
+              {[...category.items].sort(compareBySkillLevel).map((item) => (
+                <Badge key={item.label} theme={item.level} icon={item.icon}>
+                  {item.label}
+                </Badge>
+              ))}
+            </div>
+          </section>
+        ))}
       </div>
     </div>
   );

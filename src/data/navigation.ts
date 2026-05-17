@@ -1,44 +1,41 @@
-import type { ComponentType } from 'react';
-import type { IconProps } from '@/utils';
-import User from '@/components/icons/user';
-import Code from '@/components/icons/code';
-import Camera from '@/components/icons/camera';
-import Mail from '@/components/icons/mail';
+import type { IconRegistryKey } from '@/components/icons/iconRegistry';
 
 export type NavigationItem = {
+  /** Same-page anchor on `/` — pathname stays `/`, only the hash changes */
   href: string;
   translationKey: string;
-  icon: ComponentType<IconProps>;
+  iconKey: IconRegistryKey;
 };
 
-/**
- * Navigation configuration
- * To change icons, simply import a different icon component and replace it here
- */
 export const navigationData: NavigationItem[] = [
   {
-    href: '/aboutme',
-    translationKey: 'navigation.me',
-    icon: User,
+    href: '/#welcome',
+    translationKey: 'navigation.welcome',
+    iconKey: 'home',
   },
   {
-    href: '/techstack',
+    href: '/#techstack',
     translationKey: 'navigation.tech',
-    icon: Code,
+    iconKey: 'code',
   },
   {
-    href: '/career',
+    href: '/#about',
+    translationKey: 'navigation.me',
+    iconKey: 'user',
+  },
+  {
+    href: '/#career',
     translationKey: 'navigation.career',
-    icon: Mail,
+    iconKey: 'briefcase',
   },
   {
-    href: '/contact',
+    href: '/#contact',
     translationKey: 'navigation.contact',
-    icon: Mail,
-  },
-  {
-    href: '/media',
-    translationKey: 'navigation.photosVideos',
-    icon: Camera,
+    iconKey: 'mail',
   },
 ];
+
+/** Section ids for scroll-spy / sidebar plane (order matches `navigationData`). */
+export const NAV_SECTION_IDS: readonly string[] = navigationData.map((item) =>
+  item.href.replace(/^\/?#/, ''),
+);

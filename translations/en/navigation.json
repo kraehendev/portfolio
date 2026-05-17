@@ -1,0 +1,19 @@
+{
+  "navigation": {
+    "main": "Main navigation",
+    "me": "About Me",
+    "tech": "Tech Stack",
+    "career": "Career",
+    "welcome": "Welcome",
+    "contact": "Contact",
+    "menu": "Menu",
+    "openMenu": "Open menu",
+    "close": "Close",
+    "closeMenu": "Close menu"
+  },
+  "language": {
+    "switch": "Change language",
+    "de": "German",
+    "en": "English"
+  }
+}

@@ -13,39 +13,25 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: "Montserrat";
-  src: url("/Montserrat/Montserrat-Italic-VariableFont_wght.ttf")
-    format("truetype-variations");
-  font-weight: 100 900;
-  font-style: italic;
-  font-display: swap;
-}
-
 :root {
   --site-nav-width: min(280px, 85vw);
+  --site-footer-band-height: 8rem;
+  --site-footer-padding-top: 1rem;
+  --site-footer-padding-bottom: 1.5rem;
 
-  /* Dark theme (default) - Dark blue */
   --background: #0f172a;
   --foreground: #f1f5f9;
-  --bento-card-bg: #1e293b;
-  --bento-card-border: rgba(241, 245, 249, 0.15);
-  --bento-card-shadow: rgba(0, 0, 0, 0.2);
-}
-
-[data-theme="light"] {
-  --background: #f8fafc;
-  --foreground: #0f172a;
-  --bento-card-bg: #e2e8f0;
-  --bento-card-border: rgba(15, 23, 42, 0.15);
-  --bento-card-shadow: rgba(0, 0, 0, 0.05);
+  /* Raised panels, nav chrome, bordered boxes */
+  --elevated-surface-bg: #1e293b;
+  --elevated-surface-border: rgba(241, 245, 249, 0.15);
+  --elevated-surface-shadow: rgba(0, 0, 0, 0.2);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Montserrat", Arial, Helvetica, sans-serif;
+  --breakpoint-lg: 992px;
 }
 
 html,
@@ -60,6 +46,12 @@ html {
   transition: all 0.3s ease-in-out;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 body {
   color: var(--foreground);
   display: flex;
@@ -72,7 +64,23 @@ main {
   flex: 1;
   padding-top: 60px;
 
-  @media (min-width: 768px) {
-    padding-top: 70px;
+  @media (min-width: 992px) {
+    padding-top: 0;
+  }
+}
+
+.site-footer-band {
+  box-sizing: border-box;
+  min-height: var(--site-footer-band-height);
+  padding-top: var(--site-footer-padding-top);
+  padding-bottom: var(--site-footer-padding-bottom);
+  border-top: 1px solid var(--elevated-surface-border);
+  background: var(--background);
+}
+
+@media (min-width: 992px) {
+  .site-footer-band {
+    height: var(--site-footer-band-height);
+    min-height: 0;
   }
 }

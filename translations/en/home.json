@@ -1,0 +1,12 @@
+{
+  "home": {
+    "techstack": {
+      "title": "My tech stack",
+      "intro": "A brief overview of what I have worked with and how I rate my skill level in each area."
+    },
+    "career": {
+      "title": "My career",
+      "intro": "My professional journey from apprenticeship to today."
+    }
+  }
+}

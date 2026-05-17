@@ -1,30 +1,52 @@
-import Container from '@/components/ui/container';
-import styles from '@/styles/layout/footer.module.scss';
-import AnimatedLink from '@/components/sections/animatedLink';
-import { getTranslations } from 'next-intl/server';
-import Lantern from '@/components/ui/lantern';
+'use client';
 
-export default async function Footer() {
-  const t = await getTranslations();
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useTranslations } from 'next-intl';
+
+const footerLinkBaseClass =
+  'block border-l-[3px] border-transparent py-2 pl-3 pr-2 text-left text-foreground no-underline transition-colors duration-200 hover:bg-[var(--elevated-surface-bg)] motion-reduce:transition-none';
+
+const footerLinkActiveClass =
+  'border-l-foreground bg-[var(--elevated-surface-bg)] font-semibold';
+
+type FooterProps = {
+  className?: string;
+  /** Close parent overlay (e.g. mobile drawer) after navigation */
+  onLinkClick?: () => void;
+};
+
+const footerLinks = [
+  { href: '/legal', translationKey: 'legalNotice' as const },
+  { href: '/privacy', translationKey: 'privacyPolicy' as const },
+];
+
+export default function Footer({ className = '', onLinkClick }: FooterProps) {
+  const pathname = usePathname();
+  const t = useTranslations();
 
   return (
-    <footer className={`${styles.footer}`}>
-      <Container>
-        <div className="flex justify-between items-center">
-          <p>© 2026 Florian Kuehne</p>
-          <ul className="flex flex-col md:flex-row gap-2">
-            <li className="p-4">
-              <AnimatedLink href="/legal" label={t('legalNotice')} />
+    <footer
+      className={`site-footer-band shrink-0 px-2 text-foreground lg:-mx-3 lg:px-3 ${className}`}
+    >
+      <p className="mb-3 text-xs text-foreground/90">{t('footer.copyright')}</p>
+      <ul className="m-0 flex list-none flex-col gap-0 p-0">
+        {footerLinks.map(({ href, translationKey }) => {
+          const isActive = pathname === href;
+          return (
+            <li key={href} className="m-0">
+              <Link
+                href={href}
+                className={`${footerLinkBaseClass} ${isActive ? footerLinkActiveClass : ''}`}
+                onClick={onLinkClick}
+                aria-current={isActive ? 'page' : undefined}
+              >
+                {t(translationKey)}
+              </Link>
             </li>
-            <li className="p-4">
-              <AnimatedLink href="/privacy" label={t('privacyPolicy')} />
-            </li>
-          </ul>
-          <div>
-            <ul></ul>
-          </div>
-        </div>
-      </Container>
+          );
+        })}
+      </ul>
     </footer>
   );
 }

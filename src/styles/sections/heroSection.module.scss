@@ -1,0 +1,291 @@
+@use '../config.scss' as *;
+@use 'sass:math';
+
+.decor {
+  --contrail-scale: 0.3;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  @include breakpoint(md) {
+    --contrail-scale: 0.55;
+  }
+
+  @include breakpoint(lg) {
+    --contrail-scale: 1;
+  }
+}
+
+.moon {
+  position: absolute;
+  top: 6%;
+  right: 12%;
+  z-index: 1;
+  width: 6.75rem;
+  animation: moonIdle 12s ease-in-out infinite;
+  will-change: transform;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+@keyframes moonIdle {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(toRem(-4), toRem(6), 0);
+  }
+}
+
+.cloudIcon {
+  color: var(--foreground);
+  opacity: 0.22;
+  filter: blur(0.2px);
+}
+
+.cloudIconFaint {
+  color: var(--foreground);
+  opacity: 0.08;
+  filter: blur(0.35px);
+}
+
+@keyframes cloudIdle {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(toRem(10), toRem(-6), 0);
+  }
+}
+
+.cloud1,
+.cloud2,
+.cloud3,
+.cloud4,
+.cloud5,
+.cloud6,
+.cloud7,
+.cloud8,
+.cloud9 {
+  position: absolute;
+  z-index: 1;
+  animation: cloudIdle 9s ease-in-out infinite;
+  will-change: transform;
+  aspect-ratio: 100 / 60;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.cloud1 {
+  top: 5%;
+  left: -2%;
+  width: clamp(3.75rem, 22vmin, 9rem);
+  animation-duration: 11s;
+}
+
+.cloud2 {
+  top: 68%;
+  right: 2%;
+  width: clamp(2.75rem, 16vmin, 6.5rem);
+  animation-duration: 13s;
+  animation-delay: -2.5s;
+}
+
+.cloud3 {
+  top: 42%;
+  left: 8%;
+  width: clamp(3.25rem, 18vmin, 7.5rem);
+  animation-duration: 10s;
+  animation-delay: -4s;
+}
+
+.cloud4 {
+  top: 18%;
+  right: 12%;
+  width: clamp(2.25rem, 12vmin, 5rem);
+  animation-duration: 12s;
+  animation-delay: -6s;
+}
+
+.cloud5 {
+  bottom: 6%;
+  left: 4%;
+  width: clamp(2.5rem, 14vmin, 6rem);
+  animation-duration: 14s;
+  animation-delay: -1s;
+}
+
+.cloud6 {
+  bottom: 12%;
+  right: 6%;
+  width: clamp(3rem, 17vmin, 7rem);
+  animation-duration: 11.5s;
+  animation-delay: -3.5s;
+}
+
+.cloud7 {
+  top: 52%;
+  right: -1%;
+  width: clamp(3.5rem, 20vmin, 8.5rem);
+  animation-duration: 15s;
+  animation-delay: -5.5s;
+}
+
+.cloud8 {
+  top: 28%;
+  left: 38%;
+  width: clamp(2.4rem, 11vmin, 4.75rem);
+  animation-duration: 10.5s;
+  animation-delay: -7s;
+}
+
+.cloud9 {
+  bottom: 38%;
+  left: 22%;
+  width: clamp(2rem, 10vmin, 4.25rem);
+  animation-duration: 12.5s;
+  animation-delay: -8.5s;
+}
+
+.airplaneIcon {
+  opacity: 0.65;
+  overflow: visible;
+}
+
+$contrail-length-ratio: math.div(5500, 458.329);
+
+.airplaneTop,
+.airplaneMiddleTop,
+.airplaneBottom {
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  overflow: visible;
+  will-change: transform;
+  animation: flyAcrossLeftToRight 10s linear infinite;
+}
+
+.airplaneMiddleBottom {
+  --plane-size: #{toRem(96)};
+  --contrail-room: min(
+    90vw,
+    calc(var(--plane-size) * #{$contrail-length-ratio} * var(--contrail-scale, 1))
+  );
+  position: absolute;
+  top: 60%;
+  z-index: 2;
+  width: calc(var(--plane-size) + var(--contrail-room));
+  height: var(--plane-size);
+  overflow: visible;
+  animation: flyMiddlePlaneRightToLeft 12s linear infinite;
+  animation-delay: -6.5s;
+
+  .airplaneIcon {
+    display: block;
+    width: var(--plane-size);
+    height: var(--plane-size);
+  }
+
+  @include breakpoint(lg) {
+    animation-duration: 22s;
+    animation-delay: -12s;
+  }
+}
+
+.airplaneTop {
+  top: 14%;
+  animation-duration: 10s;
+  animation-delay: -3.5s;
+
+  @include breakpoint(lg) {
+    animation-duration: 18s;
+    animation-delay: -6s;
+  }
+}
+
+.airplaneMiddleTop {
+  top: 32%;
+  animation-duration: 15s;
+  animation-delay: -2s;
+
+  @include breakpoint(lg) {
+    animation-duration: 28s;
+    animation-delay: -4s;
+  }
+}
+
+.airplaneBottom {
+  top: 80%;
+  animation-duration: 11s;
+  animation-delay: -10s;
+
+  @include breakpoint(lg) {
+    animation-duration: 20s;
+    animation-delay: -18s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .moon,
+  .cloud1,
+  .cloud2,
+  .cloud3,
+  .cloud4,
+  .cloud5,
+  .cloud6,
+  .cloud7,
+  .cloud8,
+  .cloud9,
+  .airplaneTop,
+  .airplaneMiddleTop,
+  .airplaneMiddleBottom,
+  .airplaneBottom {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .airplaneMiddleBottom {
+    left: 15% !important;
+  }
+
+  .airplaneTop {
+    left: 55% !important;
+  }
+
+  .airplaneMiddleTop {
+    left: 35% !important;
+  }
+
+  .airplaneBottom {
+    left: 70% !important;
+  }
+}
+
+@keyframes flyAcrossLeftToRight {
+  from {
+    transform: translateX(calc(-100% - 18vw));
+  }
+  to {
+    transform: translateX(calc(100vw + 18vw));
+  }
+}
+
+@keyframes flyMiddlePlaneRightToLeft {
+  from {
+    left: calc(100vw + 18vw);
+  }
+  to {
+    left: calc(-1 * var(--plane-size) - var(--contrail-room) - 18vw);
+  }
+}

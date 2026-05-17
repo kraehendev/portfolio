@@ -12,6 +12,12 @@ const eslintConfig = defineConfig([
     'out/**',
     'build/**',
     'next-env.d.ts',
+    'jest.config.ts',
+    'jest.setup.ts',
+    // PWA build artifacts
+    'public/sw.js',
+    'public/workbox-*.js',
+    'public/fallback-*.js',
   ]),
   {
     rules: {

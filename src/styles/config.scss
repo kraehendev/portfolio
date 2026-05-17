@@ -1,4 +1,5 @@
-@use "sass:math";
+@use 'sass:map';
+@use 'sass:math';
 
 @function toRem($value) {
   // Convert pixel value to rem (assuming base font size of 16px)
@@ -17,8 +18,8 @@ $breakpoints: (
 );
 
 @mixin breakpoint($size) {
-  @if map-has-key($breakpoints, $size) {
-    @media (min-width: map-get($breakpoints, $size)) {
+  @if map.has-key($breakpoints, $size) {
+    @media (min-width: map.get($breakpoints, $size)) {
       @content;
     }
   } @else {

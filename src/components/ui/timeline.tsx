@@ -7,9 +7,5 @@ type TimelineProps = {
 };
 
 export default function Timeline({ children, className = '' }: TimelineProps) {
-  return (
-    <div className={`${styles.timeline} ${className}`}>
-      {children}
-    </div>
-  );
+  return <div className={`${styles.timeline} ${className}`}>{children}</div>;
 }
