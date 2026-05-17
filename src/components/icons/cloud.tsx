@@ -1,6 +1,9 @@
+import { useId } from 'react';
 import type { IconProps } from '@/utils';
 
 export default function Cloud({ className = '', size = 64 }: IconProps) {
+  const bodyGradientId = useId();
+
   return (
     <svg
       className={className}
@@ -11,7 +14,7 @@ export default function Cloud({ className = '', size = 64 }: IconProps) {
       style={{ color: 'var(--cloud-color, currentColor)' }}
     >
       <defs>
-        <linearGradient id="cloudBody" x1="50%" y1="0%" x2="50%" y2="100%">
+        <linearGradient id={bodyGradientId} x1="50%" y1="0%" x2="50%" y2="100%">
           <stop offset="0%" stopColor="currentColor" stopOpacity="0.95" />
           <stop offset="55%" stopColor="currentColor" stopOpacity="0.82" />
           <stop offset="100%" stopColor="currentColor" stopOpacity="0.68" />
@@ -19,7 +22,7 @@ export default function Cloud({ className = '', size = 64 }: IconProps) {
       </defs>
       {/* Base volume */}
       <path
-        fill="url(#cloudBody)"
+        fill={`url(#${bodyGradientId})`}
         d="M85 35c0-8.284-6.716-15-15-15-1.47 0-2.89.212-4.234.607C63.037 12.075 54.34 6 44 6c-13.255 0-24 10.745-24 24 0 .69.029 1.373.086 2.048C11.34 33.886 5 41.355 5 50c0 5.523 4.477 10 10 10h60c11.046 0 20-8.954 20-20 0-3.167-.738-6.163-2.052-8.828A14.95 14.95 0 0085 35z"
       />
       {/* Underbelly depth */}

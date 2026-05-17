@@ -46,7 +46,7 @@ export default function HeroDecor() {
       data-paused={paused ? 'true' : 'false'}
       aria-hidden
     >
-      <div className={styles.moon}>
+      <div className={`${styles.moon} ${styles.hideBelowLg}`}>
         <Moon size={88} />
       </div>
       {clouds.map((cloud) => (

@@ -7,8 +7,12 @@
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  content-visibility: auto;
-  contain-intrinsic-size: auto 80vh;
+  contain: paint;
+
+  @include breakpoint(lg) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 80vh;
+  }
 
   @include breakpoint(md) {
     --contrail-scale: 0.55;
@@ -200,10 +204,12 @@ $contrail-length-ratio: math.div(5500, 458.329);
   );
   position: absolute;
   top: 60%;
+  left: 0;
   z-index: 2;
   width: calc(var(--plane-size) + var(--contrail-room));
   height: var(--plane-size);
   overflow: visible;
+  will-change: transform;
   animation: flyMiddlePlaneRightToLeft 12s linear infinite;
   animation-delay: -6.5s;
 
@@ -272,7 +278,7 @@ $contrail-length-ratio: math.div(5500, 458.329);
   }
 
   .airplaneMiddleBottom {
-    left: 15% !important;
+    transform: translateX(15%) !important;
   }
 
   .airplaneTop {
@@ -299,9 +305,9 @@ $contrail-length-ratio: math.div(5500, 458.329);
 
 @keyframes flyMiddlePlaneRightToLeft {
   from {
-    left: calc(100vw + 18vw);
+    transform: translateX(calc(100vw + 18vw));
   }
   to {
-    left: calc(-1 * var(--plane-size) - var(--contrail-room) - 18vw);
+    transform: translateX(calc(-1 * var(--plane-size) - var(--contrail-room) - 18vw));
   }
 }

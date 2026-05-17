@@ -1,6 +1,10 @@
+import { useId } from 'react';
 import type { IconProps } from '@/utils';
 
 export default function Moon({ className = '', size = 64 }: IconProps) {
+  const glowId = useId();
+  const surfaceId = useId();
+
   return (
     <svg
       className={className}
@@ -10,19 +14,19 @@ export default function Moon({ className = '', size = 64 }: IconProps) {
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
-        <radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
+        <radialGradient id={glowId} cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor="rgba(255, 255, 200, 0.4)" />
           <stop offset="100%" stopColor="rgba(255, 255, 200, 0)" />
         </radialGradient>
-        <radialGradient id="moonSurface" cx="30%" cy="30%" r="70%">
+        <radialGradient id={surfaceId} cx="30%" cy="30%" r="70%">
           <stop offset="0%" stopColor="#fffde7" />
           <stop offset="100%" stopColor="#e0d8a8" />
         </radialGradient>
       </defs>
       {/* Glow effect */}
-      <circle cx="50" cy="50" r="48" fill="url(#moonGlow)" />
+      <circle cx="50" cy="50" r="48" fill={`url(#${glowId})`} />
       {/* Moon body */}
-      <circle cx="50" cy="50" r="35" fill="url(#moonSurface)" />
+      <circle cx="50" cy="50" r="35" fill={`url(#${surfaceId})`} />
       {/* Craters */}
       <circle cx="38" cy="40" r="6" fill="#d4cca0" opacity="0.5" />
       <circle cx="55" cy="55" r="8" fill="#d4cca0" opacity="0.4" />

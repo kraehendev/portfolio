@@ -34,10 +34,8 @@ export default function CareerTimeline({
             typeLabels={labels}
           />
         ))}
-        <div
-          className={itemStyles.startCapRow}
-          aria-label={labels.timelineStart}
-        >
+        <div className={itemStyles.startCapRow}>
+          <span className="sr-only">{labels.timelineStart}</span>
           <div className={itemStyles.startCapMarker}>
             <div
               className={itemStyles.markerIcon}
