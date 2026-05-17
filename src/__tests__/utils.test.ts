@@ -50,14 +50,14 @@ describe('hash href helpers', () => {
 });
 
 describe('scrollToHashId', () => {
-  it('scrolls the target element into view', () => {
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
+  it('scrolls the target element into view with smooth behavior by default', () => {
     const scrollIntoView = jest.fn();
     const element = { scrollIntoView } as unknown as HTMLElement;
     jest.spyOn(document, 'getElementById').mockReturnValue(element);
-    Object.defineProperty(window, 'matchMedia', {
-      writable: true,
-      value: jest.fn().mockReturnValue({ matches: false }),
-    });
 
     scrollToHashId('about');
 
@@ -70,17 +70,9 @@ describe('handleSamePageHashClick', () => {
   beforeEach(() => {
     jest.spyOn(window.history, 'pushState').mockImplementation(() => {});
     jest.spyOn(window, 'dispatchEvent').mockImplementation(() => true);
-    Object.defineProperty(window, 'location', {
-      writable: true,
-      value: { hash: '' },
-    });
     jest.spyOn(document, 'getElementById').mockReturnValue({
       scrollIntoView: jest.fn(),
     } as unknown as HTMLElement);
-    Object.defineProperty(window, 'matchMedia', {
-      writable: true,
-      value: jest.fn().mockReturnValue({ matches: false }),
-    });
   });
 
   afterEach(() => {

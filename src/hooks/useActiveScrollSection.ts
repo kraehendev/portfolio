@@ -29,7 +29,9 @@ type Scored = { id: string; index: number; visiblePx: number; ratio: number };
 
 export function useActiveScrollSection(sectionIds: readonly string[]): string {
   const pathname = usePathname();
-  const [activeId, setActiveId] = useState(() => sectionIds[0] ?? '');
+  const [scrollActiveId, setScrollActiveId] = useState(
+    () => sectionIds[0] ?? '',
+  );
   const sectionIdsRef = useRef(sectionIds);
 
   useEffect(() => {
@@ -37,13 +39,12 @@ export function useActiveScrollSection(sectionIds: readonly string[]): string {
   }, [sectionIds]);
 
   useEffect(() => {
-    const ids = sectionIdsRef.current;
-    if (ids.length === 0) {
+    if (pathname !== '/') {
       return;
     }
 
-    if (pathname !== '/') {
-      setActiveId(ids[0] ?? '');
+    const ids = sectionIdsRef.current;
+    if (ids.length === 0) {
       return;
     }
 
@@ -64,7 +65,7 @@ export function useActiveScrollSection(sectionIds: readonly string[]): string {
       });
 
       if (scored.length === 0) {
-        setActiveId(list[0] ?? '');
+        setScrollActiveId(list[0] ?? '');
         return;
       }
 
@@ -84,7 +85,7 @@ export function useActiveScrollSection(sectionIds: readonly string[]): string {
       const chosen =
         majority.length > 0 ? pickBest(majority) : pickBest(scored);
 
-      setActiveId(chosen.id);
+      setScrollActiveId(chosen.id);
     };
 
     const scheduleTick = () => {
@@ -110,5 +111,9 @@ export function useActiveScrollSection(sectionIds: readonly string[]): string {
     };
   }, [pathname]);
 
-  return activeId;
+  if (pathname !== '/') {
+    return sectionIds[0] ?? '';
+  }
+
+  return scrollActiveId;
 }

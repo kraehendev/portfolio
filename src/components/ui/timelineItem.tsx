@@ -103,6 +103,7 @@ export default function TimelineItem({
         {projects && projects.length > 0 && (
           <div className={styles.accordionSlot}>
             <Accordion
+              key={projects.map((p) => p.id).join(',')}
               idPrefix={item.id}
               ariaLabel={ion2sAccordionLabel}
               items={projects.map((p) => ({

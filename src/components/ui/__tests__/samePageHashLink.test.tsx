@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import SamePageHashLink from '@/components/ui/samePageHashLink';
-import * as utils from '@/utils';
 
 jest.mock('next/navigation', () => ({
   usePathname: jest.fn(() => '/en'),
@@ -9,7 +8,10 @@ jest.mock('next/navigation', () => ({
 
 describe('SamePageHashLink', () => {
   beforeEach(() => {
-    jest.spyOn(utils, 'handleSamePageHashClick').mockImplementation(() => {});
+    jest.spyOn(window.history, 'pushState').mockImplementation(() => {});
+    jest.spyOn(document, 'getElementById').mockReturnValue({
+      scrollIntoView: jest.fn(),
+    } as unknown as HTMLElement);
   });
 
   afterEach(() => {
@@ -24,7 +26,7 @@ describe('SamePageHashLink', () => {
     expect(link).toHaveAttribute('href', '/en#about');
   });
 
-  it('delegates clicks to handleSamePageHashClick and forwards onClick', async () => {
+  it('handles same-page hash clicks and forwards onClick', async () => {
     const user = userEvent.setup();
     const onClick = jest.fn();
 
@@ -36,10 +38,11 @@ describe('SamePageHashLink', () => {
 
     await user.click(screen.getByRole('link', { name: 'About' }));
 
-    expect(utils.handleSamePageHashClick).toHaveBeenCalledWith(
-      expect.objectContaining({ type: 'click' }),
+    expect(document.getElementById).toHaveBeenCalledWith('about');
+    expect(window.history.pushState).toHaveBeenCalledWith(
+      null,
+      '',
       '/en#about',
-      '/en',
     );
     expect(onClick).toHaveBeenCalled();
   });

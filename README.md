@@ -1,6 +1,6 @@
 # Welcome
 
-This is the source code of the portfolio page of Florian Kühne.
+### This is the source code for Florian Kühne's portfolio page, which has no reason to be this complex. Feel free to take inspiration 🌈 (or copy) from it.
 
 ---
 
@@ -16,7 +16,7 @@ Single-page portfolio built with **Next.js 16** (App Router), **React 19**, **Ty
 | UI        | React 19, Tailwind 4, SCSS modules            |
 | i18n      | next-intl, JSON files in `translations/`      |
 | PWA       | `@ducanh2912/next-pwa`                        |
-| Fonts     | Self-hosted Montserrat (`public/Montserrat/`) |
+| Fonts     | Montserrat via `next/font` (Latin subset, build-time) |
 | Analytics | Vercel Speed Insights (optional on Vercel)    |
 
 ### Prerequisites
@@ -52,7 +52,7 @@ Open [http://localhost:3000](http://localhost:3000). Locale is chosen from the `
 portfolio/
 ├── public/                 # Static assets (icons, fonts, PWA output)
 │   ├── icons/              # App icons (source SVGs + generated PNGs)
-│   └── Montserrat/         # Variable font (normal weight only)
+│   └── Montserrat/         # Legacy; optional — app uses `next/font` in `src/lib/fonts.ts`
 ├── scripts/
 │   └── generate-pwa-icons.mjs
 ├── translations/
@@ -200,40 +200,75 @@ This writes PNG sizes and `favicon.ico` via `sharp`. Metadata references are in 
 | Task               | Command / location                     |
 | ------------------ | -------------------------------------- |
 | Run locally        | `npm run dev`                          |
+| Full CI locally    | `npm run ci`                           |
 | Typecheck + build  | `npm run build`                        |
-| Lint               | `npm run lint`                         |
+| Lint               | `npm run lint` (scopes to `src/`)      |
+| Unit tests         | `npm run test` / `npm run test:ci`     |
 | Icons / PWA assets | `npm run generate-pwa-icons`           |
 | Env                | No `.env` required for basic local dev |
 
 Before committing:
 
-1. Run `npm run build` and fix TypeScript errors.
-2. Run `npm run lint`.
-3. Update **both** `de` and `en` translation files when changing copy.
-4. Do not commit generated PWA files unless you intentionally refreshed them (`public/sw.js`, `workbox-*.js`, `fallback-*.js`).
+1. Run `npm run ci` (lint, tests, production build).
+2. Update **both** `de` and `en` translation files when changing copy.
+3. Do not commit generated PWA files unless you intentionally refreshed them (`public/sw.js`, `workbox-*.js`, `fallback-*.js`).
 
 ---
 
-## Deployment
+## CI
 
-- Build command: `npm run build`
-- Start command: `npm run start`
-- Node server deployment (Vercel, Docker, etc.) is supported.
-- Ensure `public/icons/*.png` exist (run `generate-pwa-icons` in CI if icons change).
-- Speed Insights loads from `@vercel/speed-insights/next` in `layout.tsx`; harmless elsewhere, most useful on Vercel.
+GitHub Actions (`.github/workflows/ci.yml`) runs on pushes and pull requests to `main`, `develop`, and `master`:
+
+1. `npm ci`
+2. `npm run lint`
+3. `npm run test:ci`
+4. `npm run build` (webpack, required for the PWA plugin)
+
+Node version is pinned via `.nvmrc` (22) and `package.json` `engines`.
+
+---
+
+## Deployment (Vercel)
+
+The repo includes `vercel.json` with the production build command. Vercel auto-detects Next.js; no environment variables are required for a standard deploy.
+
+| Setting        | Value              |
+| -------------- | ------------------ |
+| Framework      | Next.js            |
+| Node.js        | 22.x (from `.nvmrc`) |
+| Install        | `npm ci`           |
+| Build          | `npm run build`    |
+| Output         | Next.js default    |
+
+**Connect the repo**
+
+1. Import the GitHub repository in the [Vercel dashboard](https://vercel.com/new).
+2. Use default settings (they match `vercel.json`).
+3. Deploy — PWA assets are generated during `npm run build`.
+
+**Optional**
+
+- Enable [Vercel Speed Insights](https://vercel.com/docs/speed-insights) in the project settings (already integrated in `layout.tsx`).
+- Add a production domain in Vercel → Settings → Domains.
+
+**Other hosts**
+
+- Build: `npm run build`
+- Start: `npm run start`
+- Ensure `public/icons/*.png` exist (`npm run generate-pwa-icons` if SVG sources changed).
 
 ---
 
 ## Troubleshooting
 
-| Issue                          | What to check                                                                                    |
-| ------------------------------ | ------------------------------------------------------------------------------------------------ |
-| Nav highlight wrong            | Section `id` must match `navigation.ts` hash; scroll-spy uses `NAV_SECTION_IDS`                  |
-| Missing translation            | Key in JSON for both locales; module listed in `routeNamespaces.ts` for that path                |
-| Client `useTranslations` fails | Top-level key included in `pickClientMessages.ts`                                                |
-| PWA not updating               | Hard refresh; rebuild production; clear site data                                                |
-| Sass deprecation warnings      | Prefer `sass:map` / `sass:math` in SCSS (`config.scss` uses `map.get`; hero uses `math.div`)     |
-| Build requires webpack         | `package.json` uses `next build --webpack` for PWA compatibility                                 |
+| Issue                          | What to check                                                                                |
+| ------------------------------ | -------------------------------------------------------------------------------------------- |
+| Nav highlight wrong            | Section `id` must match `navigation.ts` hash; scroll-spy uses `NAV_SECTION_IDS`              |
+| Missing translation            | Key in JSON for both locales; module listed in `routeNamespaces.ts` for that path            |
+| Client `useTranslations` fails | Top-level key included in `pickClientMessages.ts`                                            |
+| PWA not updating               | Hard refresh; rebuild production; clear site data                                            |
+| Sass deprecation warnings      | Prefer `sass:map` / `sass:math` in SCSS (`config.scss` uses `map.get`; hero uses `math.div`) |
+| Build requires webpack         | `package.json` uses `next build --webpack` for PWA compatibility                             |
 
 ---
 

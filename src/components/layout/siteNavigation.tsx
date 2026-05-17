@@ -30,6 +30,11 @@ const mobileNavLinkActiveClass =
   'border-l-foreground bg-[var(--elevated-surface-bg)] font-semibold';
 
 export default function SiteNavigation() {
+  const pathname = usePathname();
+  return <SiteNavigationPanel key={pathname} />;
+}
+
+function SiteNavigationPanel() {
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations();
   const pathname = usePathname();
@@ -43,10 +48,6 @@ export default function SiteNavigation() {
   const closeMenu = () => {
     setIsOpen(false);
   };
-
-  useEffect(() => {
-    closeMenu();
-  }, [pathname]);
 
   useEffect(() => {
     if (isOpen) {

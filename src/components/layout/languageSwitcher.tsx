@@ -8,9 +8,8 @@ import FlagDe from '@/components/icons/flagDe';
 import FlagEn from '@/components/icons/flagEn';
 import type { IconProps } from '@/utils';
 import { routing, type Locale } from '@/i18n/routing';
+import { writeLocaleCookie } from '@/lib/localeCookie';
 
-const LOCALE_COOKIE = 'NEXT_LOCALE';
-const LOCALE_COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
 const FLAG_SIZE = 28;
 
 const localeFlags: Record<Locale, ComponentType<IconProps>> = {
@@ -41,7 +40,7 @@ export default function LanguageSwitcher({ className = '' }: LanguageSwitcherPro
       return;
     }
 
-    document.cookie = `${LOCALE_COOKIE}=${nextLocale}; path=/; max-age=${LOCALE_COOKIE_MAX_AGE}; SameSite=Lax`;
+    writeLocaleCookie(nextLocale);
 
     startTransition(() => {
       router.refresh();

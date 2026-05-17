@@ -10,6 +10,7 @@ import LanguageSwitcher from '@/components/layout/languageSwitcher';
 import SiteLayout from '@/components/layout/siteLayout';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { pickClientMessages } from '@/i18n/pickClientMessages';
+import { montserrat } from '@/lib/fonts';
 
 export async function generateMetadata(): Promise<Metadata> {
   const messages = await getMessages();
@@ -73,10 +74,8 @@ export default async function RootLayout({
   );
 
   return (
-    <html lang={locale} suppressHydrationWarning>
-      <body
-        className={`antialiased`}
-      >
+    <html lang={locale} suppressHydrationWarning className={montserrat.variable}>
+      <body className={`${montserrat.className} antialiased`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <SiteLayout
             sidebar={

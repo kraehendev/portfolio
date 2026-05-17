@@ -13,15 +13,20 @@
   "private": true,
   "license": "ISC",
   "author": "Florian Kuehne",
+  "engines": {
+    "node": ">=20"
+  },
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint",
-    "lint:fix": "eslint --fix",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
     "test": "jest",
+    "test:ci": "jest --ci --passWithNoTests",
     "test:watch": "jest --watch",
+    "ci": "npm run lint && npm run test:ci && npm run build",
     "generate-pwa-icons": "node scripts/generate-pwa-icons.mjs"
   },
   "dependencies": {

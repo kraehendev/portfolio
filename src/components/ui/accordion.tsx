@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Badge from '@/components/ui/badge';
 import Tag from '@/components/ui/tag';
 import styles from '@/styles/ui/accordion.module.scss';
@@ -57,18 +57,6 @@ export default function Accordion({
   className = '',
 }: AccordionProps) {
   const [openId, setOpenId] = useState<string | null>(() => items[0]?.id ?? null);
-
-  const itemIds = items.map((i) => i.id).join(',');
-
-  useEffect(() => {
-    if (!items.length) {
-      setOpenId(null);
-      return;
-    }
-    setOpenId((prev) =>
-      prev && items.some((p) => p.id === prev) ? prev : items[0].id,
-    );
-  }, [itemIds, items.length]);
 
   const toggle = (id: string) => {
     setOpenId((prev) => (prev === id ? null : id));

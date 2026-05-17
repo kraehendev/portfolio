@@ -42,7 +42,6 @@ export default function DesktopSidebarNav() {
       return;
     }
     prevScrollYRef.current = window.scrollY;
-    setPlanePointsDown(true);
 
     const onScroll = () => {
       const y = window.scrollY;

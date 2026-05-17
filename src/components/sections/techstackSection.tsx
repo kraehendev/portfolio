@@ -5,6 +5,7 @@ import {
   compareBySkillLevel,
   SKILL_BADGE_THEMES,
 } from '@/components/ui/badgeThemes';
+import TechstackSkillBadge from '@/components/sections/techstackSkillBadge';
 import type { TechstackCategory } from '@/data/techstack';
 
 type TechstackSectionProps = {
@@ -49,9 +50,12 @@ export default async function TechstackSection({
             </Heading>
             <div className="flex flex-wrap gap-2">
               {[...category.items].sort(compareBySkillLevel).map((item) => (
-                <Badge key={item.label} theme={item.level} icon={item.icon}>
-                  {item.label}
-                </Badge>
+                <TechstackSkillBadge
+                  key={item.label}
+                  label={item.label}
+                  level={item.level}
+                  iconKey={item.iconKey}
+                />
               ))}
             </div>
           </section>
