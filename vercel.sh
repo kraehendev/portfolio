@@ -6,7 +6,8 @@ echo "▶ Lint"
 npm run lint
 
 echo "▶ Unit tests"
-npm run test:ci
+# Vercel sets NODE_ENV=production for the build; tests need development React (e.g. act).
+NODE_ENV=test npm run test:ci
 
 echo "▶ Production build"
 export NODE_ENV=production
