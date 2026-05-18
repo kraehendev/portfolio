@@ -96,7 +96,7 @@ Home sections use **in-page anchors** (`/#welcome`, `/#techstack`, …). Navigat
 
 - Config: `src/i18n/routing.ts` — locales `de` | `en`, default `de`, no URL prefix (`localePrefix: 'never'`).
 - Request config: `src/i18n/request.ts` — resolves locale from cookie `NEXT_LOCALE` or `Accept-Language`.
-- Messages: `src/i18n/loadMessages.ts` loads JSON modules for the current route only (see `src/i18n/routeNamespaces.ts`). `src/proxy.ts` sets the `x-pathname` header used in `src/i18n/request.ts`.
+- Messages: `src/i18n/loadMessages.ts` loads JSON modules for the current route only (see `src/i18n/routeNamespaces.ts`). `src/middleware.ts` sets the `x-pathname` header used in `src/i18n/request.ts`.
 - Client bundle: `src/i18n/pickClientMessages.ts` trims loaded messages before `NextIntlClientProvider` (nav, footer, language switcher, offline copy).
 
 **Career timeline**
