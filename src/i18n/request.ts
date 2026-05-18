@@ -25,7 +25,7 @@ async function resolveLocaleFromHeaders(): Promise<Locale> {
 
 export default getRequestConfig(async () => {
   const cookieLocale = (await cookies()).get('NEXT_LOCALE')?.value;
-  const locale = hasLocale(routing.locales, cookieLocale)
+  const locale: Locale = hasLocale(routing.locales, cookieLocale)
     ? cookieLocale
     : await resolveLocaleFromHeaders();
 
