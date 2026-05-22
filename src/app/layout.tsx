@@ -16,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const messages = await getMessages();
   const metadata = (messages as { metadata?: { description?: string; appName?: string; defaultTitle?: string } }).metadata;
   const appName = metadata?.appName ?? 'Florian Kuehne';
-  const defaultTitle = metadata?.defaultTitle ?? `${appName} — Fullstack Developer`;
+  const defaultTitle = metadata?.defaultTitle ?? `${appName} — Fullstack Engineer`;
   const description = metadata?.description ?? 'Portfolio of Florian Kuehne';
 
   return {
