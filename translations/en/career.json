@@ -44,15 +44,15 @@
             "description": "Certification as Contentful Certified Professional for professional work with the Contentful platform."
           },
           "5": {
-            "title": "Full Stack Engineer for ion2s Website",
+            "title": "Full Stack Developer for ion2s Website",
             "description": "Rebuild of the ion2s website from Typo3 to Nuxt.js/Vue with Contentful integration"
           },
           "4": {
-            "title": "Web Engineer for Vodafone Fixed Network new customer portal",
+            "title": "Web Developer for Vodafone Fixed Network new customer portal",
             "description": "Rebuild of the frontend in the Vodafone Fixed Network area for new customers on responsive templates, replacement of all components on Vue.js and SCSS"
           },
           "2": {
-            "title": "Web Engineer for Vodafone Fixed Network customer portal",
+            "title": "Web Developer for Vodafone Fixed Network customer portal",
             "description": "Maintenance & extension of the Vodafone Fixed Network area for customers"
           }
         }
