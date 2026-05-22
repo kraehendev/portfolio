@@ -1,12 +1,12 @@
 {
   "metadata": {
-    "description": "Portfolio of the experienced Fullstack Developer Florian Kuehne.",
+    "description": "Portfolio of the experienced Fullstack Engineer Florian Kuehne.",
     "appName": "Florian Kuehne",
-    "defaultTitle": "Florian Kuehne — Fullstack Developer"
+    "defaultTitle": "Florian Kuehne — Fullstack Engineer"
   },
   "siteLogo": "Florian Kühne",
   "welcome": "Welcome to my website 👋",
-  "contactLead": "Feel free to reach out about projects, questions, or a chat.",
+  "contactLead": "Feel free to reach out about projects, questions, or a chat. Tell me if you recognised every airline in the header of this website. 😉",
   "privacyPolicy": "Privacy Policy",
   "legalNotice": "Legal Notice",
   "footer": {
