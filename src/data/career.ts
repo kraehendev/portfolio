@@ -77,8 +77,8 @@ export type CareerGroupTranslationKey =
   | CareerGroupKeys['ausbildung']['description'];
 
 export type CareerProjectTranslationKey =
-  CareerGroupKeys['ion2s']['projects'][Ion2sProjectId]['title'] |
-  CareerGroupKeys['ion2s']['projects'][Ion2sProjectId]['description'];
+  | CareerGroupKeys['ion2s']['projects'][Ion2sProjectId]['title']
+  | CareerGroupKeys['ion2s']['projects'][Ion2sProjectId]['description'];
 
 export type CareerProject = {
   id: string;
@@ -119,7 +119,6 @@ export type CareerGroup = {
   endDate?: string;
   technologies?: string[];
   type: 'work' | 'education' | 'certification';
-  /** Projects and certifications at ion2s (accordion in the UI, newest-first) */
   projects?: CareerProject[];
 };
 
@@ -195,7 +194,7 @@ export const careerData: CareerGroup[] = [
     descriptionKey: careerKeys.groups.ion2s.description,
     location: 'Darmstadt',
     startDate: '2018-08',
-    endDate: '2025-06',
+    endDate: '2025-08',
     type: 'work',
     projects: [
       {
@@ -204,7 +203,7 @@ export const careerData: CareerGroup[] = [
         titleKey: careerKeys.groups.ion2s.projects['13'].title,
         descriptionKey: careerKeys.groups.ion2s.projects['13'].description,
         startDate: '2024-05',
-        endDate: '2025-06',
+        endDate: '2025-08',
         technologies: [
           'React',
           'Remix',
