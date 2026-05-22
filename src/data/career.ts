@@ -194,7 +194,7 @@ export const careerData: CareerGroup[] = [
     descriptionKey: careerKeys.groups.ion2s.description,
     location: 'Darmstadt',
     startDate: '2018-08',
-    endDate: '2025-06',
+    endDate: '2025-08',
     type: 'work',
     projects: [
       {
