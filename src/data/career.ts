@@ -184,7 +184,7 @@ export const careerData: CareerGroup[] = [
     id: 'job-search',
     titleKey: careerKeys.groups.jobsuche.title,
     descriptionKey: careerKeys.groups.jobsuche.description,
-    startDate: '2025-08',
+    startDate: '2025-09',
     type: 'work',
   },
   {
