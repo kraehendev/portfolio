@@ -48,6 +48,7 @@ export const techstackData: TechstackCategory[] = [
       { label: 'JavaScript', level: 'expert', iconKey: 'javascript' },
       { label: 'Node.js', level: 'intermediate', iconKey: 'nodejs' },
       { label: 'MySQL', level: 'intermediate', iconKey: 'mysql' },
+      { label: 'GraphQL', level: 'intermediate', iconKey: 'graphql' },
       { label: 'Python', level: 'beginner', iconKey: 'python' },
       { label: 'PHP', level: 'beginner', iconKey: 'phpelephant' },
     ],
