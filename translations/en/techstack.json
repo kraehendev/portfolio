@@ -2,9 +2,9 @@
   "techstack": {
     "levelLegend": "Skill level",
     "levels": {
-      "primary": "Expert",
-      "secondary": "Intermediate",
-      "tertiary": "Beginner"
+      "expert": "Expert",
+      "intermediate": "Intermediate",
+      "beginner": "Beginner"
     },
     "categories": {
       "languages": "Languages & markup",

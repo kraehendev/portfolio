@@ -1,12 +1,15 @@
 import { getTranslations } from 'next-intl/server';
 import Badge from '@/components/ui/badge';
 import Heading from '@/components/ui/heading';
-import {
-  compareBySkillLevel,
-  SKILL_BADGE_THEMES,
-} from '@/components/ui/badgeThemes';
 import TechstackSkillBadge from '@/components/sections/techstackSkillBadge';
-import type { TechstackCategory } from '@/data/techstack';
+import {
+  skillLevelToBadgeTheme,
+  TECHSTACK_SKILL_LEVELS,
+} from '@/components/ui/badgeThemes';
+import {
+  compareTechstackItems,
+  type TechstackCategory,
+} from '@/data/techstack';
 
 type TechstackSectionProps = {
   categories: TechstackCategory[];
@@ -26,9 +29,11 @@ export default async function TechstackSection({
           {t('levelLegend')}
         </div>
         <ul className="mt-3 flex flex-wrap gap-2">
-          {SKILL_BADGE_THEMES.map((theme) => (
-            <li key={theme}>
-              <Badge theme={theme}>{t(`levels.${theme}`)}</Badge>
+          {TECHSTACK_SKILL_LEVELS.map((level) => (
+            <li key={level}>
+              <Badge theme={skillLevelToBadgeTheme(level)}>
+                {t(`levels.${level}`)}
+              </Badge>
             </li>
           ))}
         </ul>
@@ -49,11 +54,11 @@ export default async function TechstackSection({
               {t(`categories.${category.categoryKey}`)}
             </Heading>
             <div className="flex flex-wrap gap-2">
-              {[...category.items].sort(compareBySkillLevel).map((item) => (
+              {[...category.items].sort(compareTechstackItems).map((item) => (
                 <TechstackSkillBadge
                   key={item.label}
                   label={item.label}
-                  level={item.level}
+                  badgeTheme={skillLevelToBadgeTheme(item.level)}
                   iconKey={item.iconKey}
                 />
               ))}

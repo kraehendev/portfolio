@@ -2,9 +2,9 @@
   "techstack": {
     "levelLegend": "Kenntnisstand",
     "levels": {
-      "primary": "Experte",
-      "secondary": "Fortgeschritten",
-      "tertiary": "Grundkenntnisse"
+      "expert": "Experte",
+      "intermediate": "Fortgeschritten",
+      "beginner": "Grundkenntnisse"
     },
     "categories": {
       "languages": "Programmiersprachen & Markup",

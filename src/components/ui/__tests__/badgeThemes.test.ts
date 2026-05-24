@@ -1,4 +1,15 @@
-import { compareBySkillLevel } from '@/components/ui/badgeThemes';
+import {
+  compareBySkillLevel,
+  skillLevelToBadgeTheme,
+} from '@/components/ui/badgeThemes';
+
+describe('skillLevelToBadgeTheme', () => {
+  it('maps portfolio skill tiers to badge color themes', () => {
+    expect(skillLevelToBadgeTheme('expert')).toBe('primary');
+    expect(skillLevelToBadgeTheme('intermediate')).toBe('secondary');
+    expect(skillLevelToBadgeTheme('beginner')).toBe('tertiary');
+  });
+});
 
 describe('compareBySkillLevel', () => {
   it('sorts by skill level (primary before secondary before tertiary)', () => {
