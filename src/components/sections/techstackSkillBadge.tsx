@@ -2,23 +2,23 @@
 
 import { useEffect, useState, type ComponentType } from 'react';
 import Badge from '@/components/ui/badge';
-import type { SkillBadgeTheme } from '@/components/ui/badgeThemes';
 import {
   loadTechstackLogo,
   type TechstackLogoKey,
 } from '@/components/icons/logo/techstackLogoRegistry';
+import type { SkillBadgeTheme } from '@/components/ui/badgeThemes';
 import { useLazyInView } from '@/hooks/useLazyInView';
 import type { IconProps } from '@/utils';
 
 type TechstackSkillBadgeProps = {
   label: string;
-  level: SkillBadgeTheme;
+  badgeTheme: SkillBadgeTheme;
   iconKey?: TechstackLogoKey;
 };
 
 export default function TechstackSkillBadge({
   label,
-  level,
+  badgeTheme,
   iconKey,
 }: TechstackSkillBadgeProps) {
   const { ref, visible } = useLazyInView('160px');
@@ -41,7 +41,7 @@ export default function TechstackSkillBadge({
 
   return (
     <span ref={ref} className="inline-flex">
-      <Badge theme={level} icon={Icon ?? undefined}>
+      <Badge theme={badgeTheme} icon={Icon ?? undefined}>
         {label}
       </Badge>
     </span>

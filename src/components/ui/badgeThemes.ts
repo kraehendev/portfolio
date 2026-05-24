@@ -12,6 +12,30 @@ export const SKILL_BADGE_THEMES: SkillBadgeTheme[] = [
   'tertiary',
 ];
 
+export const TECHSTACK_SKILL_LEVELS = [
+  'expert',
+  'intermediate',
+  'beginner',
+] as const;
+
+export type TechstackSkillLevel = (typeof TECHSTACK_SKILL_LEVELS)[number];
+
+/** Maps portfolio skill tiers to badge color themes (best → weakest). */
+export const skillLevelBadgeTheme: Record<
+  TechstackSkillLevel,
+  SkillBadgeTheme
+> = {
+  expert: 'primary',
+  intermediate: 'secondary',
+  beginner: 'tertiary',
+};
+
+export function skillLevelToBadgeTheme(
+  level: TechstackSkillLevel,
+): SkillBadgeTheme {
+  return skillLevelBadgeTheme[level];
+}
+
 const skillLevelRank = Object.fromEntries(
   SKILL_BADGE_THEMES.map((theme, index) => [theme, index]),
 ) as Record<SkillBadgeTheme, number>;

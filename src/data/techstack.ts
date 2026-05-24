@@ -1,7 +1,23 @@
-import type { SkillBadgeTheme } from '@/components/ui/badgeThemes';
+import {
+  TECHSTACK_SKILL_LEVELS,
+  type TechstackSkillLevel,
+} from '@/components/ui/badgeThemes';
 import type { TechstackLogoKey } from '@/components/icons/logo/techstackLogoRegistry';
 
-export type TechstackLevel = SkillBadgeTheme;
+export { TECHSTACK_SKILL_LEVELS, type TechstackSkillLevel };
+
+const skillLevelRank = Object.fromEntries(
+  TECHSTACK_SKILL_LEVELS.map((level, index) => [level, index]),
+) as Record<TechstackSkillLevel, number>;
+
+/** Sort best → weakest skill level, then alphabetically by label. */
+export function compareTechstackItems(
+  a: TechstackItem,
+  b: TechstackItem,
+): number {
+  const byLevel = skillLevelRank[a.level] - skillLevelRank[b.level];
+  return byLevel !== 0 ? byLevel : a.label.localeCompare(b.label);
+}
 
 export type TechstackCategoryKey =
   | 'languages'
@@ -12,7 +28,7 @@ export type TechstackCategoryKey =
 
 export type TechstackItem = {
   label: string;
-  level: TechstackLevel;
+  level: TechstackSkillLevel;
   iconKey?: TechstackLogoKey;
 };
 
@@ -25,62 +41,63 @@ export const techstackData: TechstackCategory[] = [
   {
     categoryKey: 'languages',
     items: [
-      { label: 'HTML', level: 'primary', iconKey: 'html' },
-      { label: 'CSS', level: 'primary', iconKey: 'css' },
-      { label: 'SASS', level: 'primary', iconKey: 'sass' },
-      { label: 'Typescript', level: 'primary', iconKey: 'typescript' },
-      { label: 'JavaScript', level: 'primary', iconKey: 'javascript' },
-      { label: 'Node.js', level: 'secondary', iconKey: 'nodejs' },
-      { label: 'MySQL', level: 'secondary', iconKey: 'mysql' },
-      { label: 'Python', level: 'tertiary', iconKey: 'python' },
-      { label: 'PHP', level: 'tertiary', iconKey: 'phpelephant' },
+      { label: 'HTML', level: 'expert', iconKey: 'html' },
+      { label: 'CSS', level: 'expert', iconKey: 'css' },
+      { label: 'SASS', level: 'expert', iconKey: 'sass' },
+      { label: 'Typescript', level: 'expert', iconKey: 'typescript' },
+      { label: 'JavaScript', level: 'expert', iconKey: 'javascript' },
+      { label: 'Node.js', level: 'intermediate', iconKey: 'nodejs' },
+      { label: 'MySQL', level: 'intermediate', iconKey: 'mysql' },
+      { label: 'GraphQL', level: 'intermediate', iconKey: 'graphql' },
+      { label: 'Python', level: 'beginner', iconKey: 'python' },
+      { label: 'PHP', level: 'beginner', iconKey: 'phpelephant' },
     ],
   },
   {
     categoryKey: 'frameworks',
     items: [
-      { label: 'React', level: 'primary', iconKey: 'react' },
-      { label: 'Next.js', level: 'primary', iconKey: 'nextjs' },
-      { label: 'Remix', level: 'secondary', iconKey: 'remix' },
-      { label: 'Tailwind CSS', level: 'tertiary', iconKey: 'tailwind' },
-      { label: 'Vue.js', level: 'secondary', iconKey: 'vue' },
-      { label: 'Express', level: 'tertiary', iconKey: 'express' },
+      { label: 'React', level: 'expert', iconKey: 'react' },
+      { label: 'Next.js', level: 'expert', iconKey: 'nextjs' },
+      { label: 'Remix', level: 'intermediate', iconKey: 'remix' },
+      { label: 'Tailwind CSS', level: 'beginner', iconKey: 'tailwind' },
+      { label: 'Vue.js', level: 'intermediate', iconKey: 'vue' },
+      { label: 'Express', level: 'beginner', iconKey: 'express' },
       {
         label: 'Styled Components',
-        level: 'tertiary',
+        level: 'beginner',
         iconKey: 'styledcomponents',
       },
-      { label: 'Jest', level: 'secondary', iconKey: 'jest' },
-      { label: 'Cypress', level: 'tertiary', iconKey: 'cypress' },
+      { label: 'Jest', level: 'intermediate', iconKey: 'jest' },
+      { label: 'Cypress', level: 'beginner', iconKey: 'cypress' },
     ],
   },
   {
     categoryKey: 'cms',
     items: [
-      { label: 'Contentful', level: 'primary', iconKey: 'contentful' },
-      { label: 'Shopify', level: 'tertiary', iconKey: 'shopify' },
+      { label: 'Contentful', level: 'expert', iconKey: 'contentful' },
+      { label: 'Shopify', level: 'beginner', iconKey: 'shopify' },
     ],
   },
   {
     categoryKey: 'tools',
     items: [
-      { label: 'MongoDB', level: 'tertiary', iconKey: 'mongodb' },
-      { label: 'AWS', level: 'tertiary', iconKey: 'aws' },
-      { label: 'Docker', level: 'tertiary', iconKey: 'docker' },
-      { label: 'Kubernetes', level: 'tertiary', iconKey: 'kubernetes' },
-      { label: 'Git', level: 'secondary', iconKey: 'git' },
-      { label: 'GitLab', level: 'tertiary', iconKey: 'gitlab' },
-      { label: 'Vercel', level: 'tertiary', iconKey: 'vercel' },
-      { label: 'Storybook', level: 'secondary', iconKey: 'storybook' },
+      { label: 'MongoDB', level: 'beginner', iconKey: 'mongodb' },
+      { label: 'AWS', level: 'beginner', iconKey: 'aws' },
+      { label: 'Docker', level: 'beginner', iconKey: 'docker' },
+      { label: 'Kubernetes', level: 'beginner', iconKey: 'kubernetes' },
+      { label: 'Git', level: 'intermediate', iconKey: 'git' },
+      { label: 'GitLab', level: 'beginner', iconKey: 'gitlab' },
+      { label: 'Vercel', level: 'beginner', iconKey: 'vercel' },
+      { label: 'Storybook', level: 'intermediate', iconKey: 'storybook' },
     ],
   },
   {
     categoryKey: 'methods',
     items: [
-      { label: 'Atomic Design', level: 'tertiary', iconKey: 'atom' },
-      { label: 'BEM', level: 'secondary', iconKey: 'bem' },
-      { label: 'Kanban', level: 'secondary', iconKey: 'kanban' },
-      { label: 'Scrum', level: 'secondary', iconKey: 'scrum' },
+      { label: 'Atomic Design', level: 'beginner', iconKey: 'atom' },
+      { label: 'BEM', level: 'intermediate', iconKey: 'bem' },
+      { label: 'Kanban', level: 'intermediate', iconKey: 'kanban' },
+      { label: 'Scrum', level: 'intermediate', iconKey: 'scrum' },
     ],
   },
 ];
